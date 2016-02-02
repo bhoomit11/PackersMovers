@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">PackersMovers</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash">splashActivity</string>
+    <string name="title_activity_login">Login</string>
+
+    <string name="title_section1">Go Home</string>
+    <string name="title_section2"></string>
+    <string name="title_section3"></string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+    <string name="title_activity_login_activity">login_activity</string>
+    <string name="drawer_close">Close</string>
+    <string name="drawer_open">Open</string>
+    <string name="title_activity_packers_register">packersRegister</string>
+    <string name="title_activity_register">registerActivity</string>
+    <string name="title_activity_packer_register">packerRegister</string>
+    <string name="title_activity_packer_reg">packerReg</string>
+</resources>
