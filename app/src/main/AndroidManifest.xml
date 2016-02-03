@@ -27,6 +27,10 @@
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         </activity>
+        <activity
+            android:name=".packerReg"
+            android:label="@string/title_activity_packer_reg" >
+        </activity>
     </application>
 
 </manifest>

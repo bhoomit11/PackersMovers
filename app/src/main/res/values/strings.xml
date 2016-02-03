@@ -21,4 +21,5 @@
     <string name="title_activity_register">registerActivity</string>
     <string name="title_activity_packer_register">packerRegister</string>
     <string name="title_activity_packer_reg">packerReg</string>
+    <string name="title_activity_pack_reg">packReg</string>
 </resources>
