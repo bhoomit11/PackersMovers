@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class loginActivity extends AppCompatActivity
@@ -36,14 +37,36 @@ public class loginActivity extends AppCompatActivity
 
     static int i;
     TextView tv;
+    Button reg;
+    ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        String data = getIntent().getExtras().getString("user");
+        actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
+
+        final String data = getIntent().getExtras().getString("user");
         tv=(TextView)findViewById(R.id.loginhead);
+        reg=(Button)findViewById(R.id.regbtn);
+
         tv.setText(data+" Login");
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(data.equals("Packers")) {
+                    Intent i = new Intent(loginActivity.this, packersReg.class);
+                    startActivity(i);
+                }
+                if(data.equals("Movers")) {
+                    Intent i = new Intent(loginActivity.this, MoversReg.class);
+                    startActivity(i);
+                }
+            }
+        });
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -53,6 +76,8 @@ public class loginActivity extends AppCompatActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+
     }
     @Override
     public void onNavigationDrawerItemSelected(int position) {
