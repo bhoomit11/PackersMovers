@@ -24,4 +24,15 @@
     <string name="title_activity_pack_reg">packReg</string>
     <string name="title_activity_packers_reg">packersReg</string>
     <string name="title_activity_movers_reg">MoversReg</string>
+
+    <string-array name="nav_drawer_items">
+        <item >Home</item>
+        <item >Find People</item>
+        <item >Photos</item>
+        <item >Communities</item>
+        <item >Pages</item>
+        <item >What\'s Hot</item>
+    </string-array>
+    <string name="title_activity_tempfrag">tempfrag</string>
+
 </resources>
