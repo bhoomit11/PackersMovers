@@ -48,6 +48,7 @@ public class loginActivity extends AppCompatActivity
 
     Button reg;
     TextView title;
+    String h1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,18 +66,23 @@ public class loginActivity extends AppCompatActivity
         reg=(Button)findViewById(R.id.regbtn);
         title=(TextView)findViewById(R.id.loginhead);
 
-        String h1=getIntent().getExtras().getString("user");
+        h1=getIntent().getExtras().getString("user");
         title.setText(h1 + " Login");
-        if(h1.equals("Packers"))
-        {
-            Intent i=new Intent(loginActivity.this,packersReg.class);
-            startActivity(i);
-        }
-        if(h1.equals("Movers"))
-        {
-            Intent i=new Intent(loginActivity.this,MoversReg.class);
-            startActivity(i);
-        }
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(h1.equals("Packers"))
+                {
+                    Intent i=new Intent(loginActivity.this,packersReg.class);
+                    startActivity(i);
+                }
+                if(h1.equals("Movers"))
+                {
+                    Intent i=new Intent(loginActivity.this,MoversReg.class);
+                    startActivity(i);
+                }
+            }
+        });
         // adding nav drawer items to array
         // Home
         navDrawerItems.add(new NavDrawerItem("GO Home"));
