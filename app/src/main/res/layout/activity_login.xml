@@ -57,6 +57,7 @@
                         <EditText
                             android:id="@+id/etpass"
                             android:layout_width="180dp"
+                            android:inputType="textPassword"
                             android:layout_height="wrap_content"/>
                     </TableRow>
                     <TableRow

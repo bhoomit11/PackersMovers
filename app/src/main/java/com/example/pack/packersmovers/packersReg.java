@@ -1,5 +1,6 @@
 package com.example.pack.packersmovers;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -36,13 +37,14 @@ public class packersReg extends AppCompatActivity {
     static InputStream is=null;
     static String json="";
     static JSONObject jobj=null;
-    EditText uname,email,pass,cno,cpass,address;
+    EditText uname,fname,email,pass,cno,cpass,address;
     Button reg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packers_reg);
         uname=(EditText)findViewById(R.id.useret);
+        fname=(EditText)findViewById(R.id.fnameet);
         email=(EditText)findViewById(R.id.emailet);
         pass=(EditText)findViewById(R.id.passet);
         cpass=(EditText)findViewById(R.id.cpasset);
@@ -62,7 +64,10 @@ public class packersReg extends AppCompatActivity {
                 if (temp.equals(pass.getText().toString())) {
                     AsyncDemo asyncDemo = new AsyncDemo();
                     asyncDemo.execute();
-                    Toast.makeText(getBaseContext(),"Profile Created!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Profile Created!", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(packersReg.this, loginActivity.class);
+                    i.putExtra("user", "Packers");
+                    startActivity(i);
                 } else {
                     Toast.makeText(getApplicationContext(), "Password does not match!", Toast.LENGTH_LONG).show();
                     pass.setText("");
@@ -74,33 +79,7 @@ public class packersReg extends AppCompatActivity {
     }
     class AsyncDemo extends AsyncTask
     {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            try{
-                ArrayList<packerInfo> al1=new ArrayList<>();
-                JSONObject object=new JSONObject(json);
-                JSONArray array=object.getJSONArray("user_info");
-                for(int i=0;i<array.length();i++)
-                {
-                    packerInfo idata=new packerInfo();
-                    JSONObject c=array.getJSONObject(i);
-                    chkuname=c.getString("uname");
-                    idata.setUname(chkuname);
-                    al1.add(idata);
-                }
-                if(al1.contains(uname.getText().toString()))
-                {
-                    Toast.makeText(getBaseContext(),"username available",Toast.LENGTH_LONG).show();
-
-                }
-            }
-            catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-
-        String Jsonurl="http://192.168.1.159/packermover/insert.php";
+        String Jsonurl="http://192.168.1.159/packermover/pinsert.php";
 
         @Override
         protected Object doInBackground(Object[] params) {
@@ -108,6 +87,7 @@ public class packersReg extends AppCompatActivity {
             ArrayList<NameValuePair> al=new ArrayList<NameValuePair>();
 
             al.add(new BasicNameValuePair("uname",uname.getText().toString()));
+            al.add(new BasicNameValuePair("fname",fname.getText().toString()));
             al.add(new BasicNameValuePair("email",email.getText().toString()));
             al.add(new BasicNameValuePair("pass",pass.getText().toString()));
             al.add(new BasicNameValuePair("cno",cno.getText().toString()));

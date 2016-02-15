@@ -1,9 +1,12 @@
 package com.example.pack.packersmovers;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
@@ -23,16 +26,39 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pack.packersmovers.model.NavDrawerItem;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class loginActivity extends AppCompatActivity
 {
+    static InputStream is=null;
+    static String json="";
+    static JSONObject jobj=null;
+
+    EditText uname,pass;
+
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -46,7 +72,7 @@ public class loginActivity extends AppCompatActivity
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavigationDrawerFragment adapter;
 
-    Button reg;
+    Button reg,login;
     TextView title;
     String h1;
     @Override
@@ -54,20 +80,30 @@ public class loginActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mTitle = mDrawerTitle = getTitle();
-        // load slide menu items
-//        navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
+        uname=(EditText)findViewById(R.id.etuser);
+        pass=(EditText)findViewById(R.id.etpass);
 
-        // nav drawer icons from resources
+        mTitle = mDrawerTitle = getTitle();
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
         navDrawerItems = new ArrayList<NavDrawerItem>();
 
         reg=(Button)findViewById(R.id.regbtn);
+        login=(Button)findViewById(R.id.loginbtn);
         title=(TextView)findViewById(R.id.loginhead);
 
-        h1=getIntent().getExtras().getString("user");
+        h1 = getIntent().getExtras().getString("user");
         title.setText(h1 + " Login");
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Asynclogin asynclogin=new Asynclogin();
+                asynclogin.execute();
+            }
+        });
+
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -223,5 +259,89 @@ public class loginActivity extends AppCompatActivity
         // Pass any configuration change to the drawer toggls
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
+    class Asynclogin extends AsyncTask<String, Void, String>
+    {
+        String Jsonurl="http://192.168.1.159/packermover/login.php";
+        private Dialog loadingDialog;
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            loadingDialog = ProgressDialog.show(loginActivity.this, "Please wait", "Loading...");
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            ArrayList<NameValuePair> al=new ArrayList<NameValuePair>();
+            String result=null;
+
+            al.add(new BasicNameValuePair("usrname",uname.getText().toString().trim()));
+            al.add(new BasicNameValuePair("passwd",pass.getText().toString().trim()));
+
+            DefaultHttpClient httpClient=new DefaultHttpClient();
+            HttpPost httpPost=new HttpPost(Jsonurl);
+
+            try{
+                httpPost.setEntity(new UrlEncodedFormEntity(al));
+            }
+            catch (UnsupportedEncodingException e){
+                e.printStackTrace();
+            }
+
+            try {
+                HttpResponse response = httpClient.execute(httpPost);
+
+                HttpEntity entity = response.getEntity();
+
+                is = entity.getContent();
+            }
+
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
+
+                StringBuilder sb = new StringBuilder();
+
+                String line = "";
+
+                while ((line=reader.readLine())!=null)
+                {
+
+                    sb.append(line+"\n");
+                }
+
+                result=sb.toString();
+//                json=sb.toString();
+//                jobj=new JSONObject(json);
+                is.close();
+
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+//            super.onPostExecute(result);
+            loadingDialog.dismiss();
+            String s = result.trim();
+            Toast.makeText(getApplicationContext(),"String: "+s,Toast.LENGTH_LONG).show();
+            if(s.equalsIgnoreCase("success")){
+//                Intent intent = new Intent(MainActivity.this, UserProfile.class);
+//                intent.putExtra(USER_NAME, username);
+//                finish();
+//                startActivity(intent);
+                Toast.makeText(getApplicationContext(),"Successfully Logged In!",Toast.LENGTH_LONG).show();
+            }else {
+                Toast.makeText(getApplicationContext(), "Invalid User Name or Password", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 }

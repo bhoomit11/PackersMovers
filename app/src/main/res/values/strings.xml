@@ -22,8 +22,8 @@
     <string name="title_activity_packer_register">packerRegister</string>
     <string name="title_activity_packer_reg">packerReg</string>
     <string name="title_activity_pack_reg">packReg</string>
-    <string name="title_activity_packers_reg">packersReg</string>
-    <string name="title_activity_movers_reg">MoversReg</string>
+    <string name="title_activity_packers_reg">Packers Registration</string>
+    <string name="title_activity_movers_reg">Movers Registration</string>
 
     <string-array name="nav_drawer_items">
         <item >Home</item>
