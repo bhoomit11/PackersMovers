@@ -1,5 +1,7 @@
 package com.example.pack.packersmovers;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.StrictMode;
@@ -77,12 +79,19 @@ public class MoversReg extends AppCompatActivity {
             }
         });
     }
-    class AsyncDemo extends AsyncTask
+    class AsyncDemo extends AsyncTask<String, Void, String>
     {
         String Jsonurl="http://192.168.1.159/packermover/minsert.php";
+        private Dialog loadingDialog;
 
         @Override
-        protected Object doInBackground(Object[] params) {
+        protected void onPreExecute() {
+            super.onPreExecute();
+            loadingDialog = ProgressDialog.show(MoversReg.this, "Please wait", "Loading...");
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
 
             ArrayList<NameValuePair> al=new ArrayList<NameValuePair>();
 
@@ -141,7 +150,30 @@ public class MoversReg extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return jobj;
+            return json;
+        }
+        @Override
+        protected void onPostExecute(String result) {
+//            super.onPostExecute(result);
+            loadingDialog.dismiss();
+            String s = result.trim();
+            if (s.equalsIgnoreCase("success")) {
+//                Intent intent = new Intent(MainActivity.this, UserProfile.class);
+//                intent.putExtra(USER_NAME, username);
+//                finish();
+//                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Successfully Registered!", Toast.LENGTH_LONG).show();
+            }
+            else if(s.equalsIgnoreCase("exist"))
+            {
+                Toast.makeText(getApplicationContext(), "Username or Email already exist!", Toast.LENGTH_LONG).show();
+                uname.setText("");
+                email.setText("");
+                uname.requestFocus();
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "oops! please try agais!!", Toast.LENGTH_LONG).show();
+            }
         }
     }
 }

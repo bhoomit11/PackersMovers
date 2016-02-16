@@ -58,6 +58,7 @@ public class loginActivity extends AppCompatActivity
     static JSONObject jobj=null;
 
     EditText uname,pass;
+    String usr,pwd;
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -74,7 +75,7 @@ public class loginActivity extends AppCompatActivity
 
     Button reg,login;
     TextView title;
-    String h1;
+    public String h1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,27 +97,27 @@ public class loginActivity extends AppCompatActivity
         h1 = getIntent().getExtras().getString("user");
         title.setText(h1 + " Login");
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Asynclogin asynclogin=new Asynclogin();
-                asynclogin.execute();
-            }
-        });
-
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(h1.equals("Packers"))
-                {
-                    Intent i=new Intent(loginActivity.this,packersReg.class);
+                if (h1.equals("Packers")) {
+                    Intent i = new Intent(loginActivity.this, packersReg.class);
                     startActivity(i);
                 }
-                if(h1.equals("Movers"))
-                {
-                    Intent i=new Intent(loginActivity.this,MoversReg.class);
+                if (h1.equals("Movers")) {
+                    Intent i = new Intent(loginActivity.this, MoversReg.class);
                     startActivity(i);
                 }
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                usr=uname.getText().toString();
+                pwd=pass.getText().toString();
+                Asynclogin asynclogin=new Asynclogin();
+                asynclogin.execute();
             }
         });
         // adding nav drawer items to array
@@ -261,7 +262,8 @@ public class loginActivity extends AppCompatActivity
     }
     class Asynclogin extends AsyncTask<String, Void, String>
     {
-        String Jsonurl="http://192.168.1.159/packermover/login.php";
+
+        String Jsonurl;
         private Dialog loadingDialog;
 
         @Override
@@ -273,11 +275,19 @@ public class loginActivity extends AppCompatActivity
         @Override
         protected String doInBackground(String... params) {
 
+            if (h1.equals("Packers")) {
+                Jsonurl = "http://192.168.1.159/packermover/pack_login.php";
+            }
+            else if(h1.equals("Movers")){
+                Jsonurl = "http://192.168.1.159/packermover/move_login.php";
+            }
+
             ArrayList<NameValuePair> al=new ArrayList<NameValuePair>();
             String result=null;
 
-            al.add(new BasicNameValuePair("usrname",uname.getText().toString().trim()));
-            al.add(new BasicNameValuePair("passwd",pass.getText().toString().trim()));
+
+            al.add(new BasicNameValuePair("usr",usr));
+            al.add(new BasicNameValuePair("pwd",pwd));
 
             DefaultHttpClient httpClient=new DefaultHttpClient();
             HttpPost httpPost=new HttpPost(Jsonurl);
@@ -324,7 +334,7 @@ public class loginActivity extends AppCompatActivity
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return result;
+            return result.trim();
         }
 
         @Override
@@ -332,7 +342,6 @@ public class loginActivity extends AppCompatActivity
 //            super.onPostExecute(result);
             loadingDialog.dismiss();
             String s = result.trim();
-            Toast.makeText(getApplicationContext(),"String: "+s,Toast.LENGTH_LONG).show();
             if(s.equalsIgnoreCase("success")){
 //                Intent intent = new Intent(MainActivity.this, UserProfile.class);
 //                intent.putExtra(USER_NAME, username);

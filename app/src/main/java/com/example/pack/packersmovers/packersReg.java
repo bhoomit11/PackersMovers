@@ -1,5 +1,7 @@
 package com.example.pack.packersmovers;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -33,7 +35,7 @@ import com.example.pack.packersmovers.model.packerInfo;
 
 public class packersReg extends AppCompatActivity {
     ActionBar actionBar;
-    String chkuname;
+    String flag="";
     static InputStream is=null;
     static String json="";
     static JSONObject jobj=null;
@@ -62,12 +64,15 @@ public class packersReg extends AppCompatActivity {
                 String temp;
                 temp = cpass.getText().toString();
                 if (temp.equals(pass.getText().toString())) {
+
                     AsyncDemo asyncDemo = new AsyncDemo();
                     asyncDemo.execute();
-                    Toast.makeText(getBaseContext(), "Profile Created!", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(packersReg.this, loginActivity.class);
-                    i.putExtra("user", "Packers");
-                    startActivity(i);
+
+                    if(flag.equals("pass")) {
+                        Intent i = new Intent(packersReg.this, loginActivity.class);
+                        i.putExtra("user", "Packers");
+                        startActivity(i);
+                    }
                 } else {
                     Toast.makeText(getApplicationContext(), "Password does not match!", Toast.LENGTH_LONG).show();
                     pass.setText("");
@@ -77,12 +82,19 @@ public class packersReg extends AppCompatActivity {
             }
         });
     }
-    class AsyncDemo extends AsyncTask
+    class AsyncDemo extends AsyncTask<String, Void, String>
     {
         String Jsonurl="http://192.168.1.159/packermover/pinsert.php";
+        private Dialog loadingDialog;
 
         @Override
-        protected Object doInBackground(Object[] params) {
+        protected void onPreExecute() {
+            super.onPreExecute();
+            loadingDialog = ProgressDialog.show(packersReg.this, "Please wait", "Loading...");
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
 
             ArrayList<NameValuePair> al=new ArrayList<NameValuePair>();
 
@@ -141,7 +153,32 @@ public class packersReg extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return jobj;
+            return json;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+//            super.onPostExecute(result);
+            loadingDialog.dismiss();
+            String s = result.trim();
+            if (s.equalsIgnoreCase("success")) {
+//                Intent intent = new Intent(MainActivity.this, UserProfile.class);
+//                intent.putExtra(USER_NAME, username);
+//                finish();
+//                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Successfully Registered!", Toast.LENGTH_LONG).show();
+                flag="pass";
+            }
+            else if(s.equalsIgnoreCase("exist"))
+            {
+                Toast.makeText(getApplicationContext(), "Username or Email already exist!", Toast.LENGTH_LONG).show();
+                uname.setText("");
+                email.setText("");
+                uname.requestFocus();
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "oops! please try agais!!", Toast.LENGTH_LONG).show();
+            }
         }
     }
 }
