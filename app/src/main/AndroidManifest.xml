@@ -12,7 +12,6 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-
         </activity>
         <activity
             android:name=".splashActivity"
@@ -39,6 +38,14 @@
             android:name=".MoversReg"
             android:label="@string/title_activity_movers_reg"
             android:theme="@style/Theme.AppCompat" >
+        </activity>
+        <activity
+            android:name=".packerHome"
+            android:label="@string/title_activity_packer_home" >
+        </activity>
+        <activity
+            android:name=".moverHome"
+            android:label="@string/title_activity_mover_home" >
         </activity>
     </application>
 

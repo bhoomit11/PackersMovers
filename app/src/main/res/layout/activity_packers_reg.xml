@@ -5,6 +5,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    android:paddingStart="2dp"
+    android:paddingEnd="2dp"
     tools:context="com.example.pack.packersmovers.packerReg">
     <TextView
         android:id="@+id/packtitle"
@@ -211,7 +215,7 @@
             android:layout_marginBottom="20dp"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/buttonripple"
+            android:background="@color/material_deep_teal_500"
             android:textSize="20dp"
             android:textAllCaps="false"
             android:text="Register" />

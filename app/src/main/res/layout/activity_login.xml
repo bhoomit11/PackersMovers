@@ -2,7 +2,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    android:paddingStart="2dp"
+    android:paddingEnd="2dp">
 
     <!-- Framelayout to display Fragments -->
     <FrameLayout
@@ -69,7 +73,7 @@
                             android:id="@+id/loginbtn"
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/buttonripple"
+                            android:background="@color/material_deep_teal_500"
                             android:textSize="20dp"
                             android:textAllCaps="false"
                             android:text="Login" />
@@ -94,7 +98,7 @@
                     android:id="@+id/regbtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/buttonripple"
+                    android:background="@color/material_deep_teal_500"
                     android:textSize="20dp"
                     android:textAllCaps="false"
                     android:text="  Register  " />

@@ -343,10 +343,16 @@ public class loginActivity extends AppCompatActivity
             loadingDialog.dismiss();
             String s = result.trim();
             if(s.equalsIgnoreCase("success")){
-//                Intent intent = new Intent(MainActivity.this, UserProfile.class);
-//                intent.putExtra(USER_NAME, username);
-//                finish();
-//                startActivity(intent);
+                if (h1.equals("Packers")) {
+                    Intent i = new Intent(loginActivity.this, packerHome.class);
+                    i.putExtra("user",uname.getText().toString());
+                    startActivity(i);
+                }
+                if (h1.equals("Movers")) {
+                    Intent i = new Intent(loginActivity.this, moverHome.class);
+                    i.putExtra("user",uname.getText().toString());
+                    startActivity(i);
+                }
                 Toast.makeText(getApplicationContext(),"Successfully Logged In!",Toast.LENGTH_LONG).show();
             }else {
                 Toast.makeText(getApplicationContext(), "Invalid User Name or Password", Toast.LENGTH_LONG).show();

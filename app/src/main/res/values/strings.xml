@@ -34,5 +34,7 @@
         <item >What\'s Hot</item>
     </string-array>
     <string name="title_activity_tempfrag">tempfrag</string>
+    <string name="title_activity_packer_home">packerHome</string>
+    <string name="title_activity_mover_home">moverHome</string>
 
 </resources>
