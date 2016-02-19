@@ -19,7 +19,7 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:gravity="center_horizontal"/>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Username"
-                            android:textSize="25dp" />
+                            android:textSize="25sp" />
                         <EditText
                             android:id="@+id/etuser"
                             android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Password"
-                            android:textSize="25dp"/>
+                            android:textSize="25sp"/>
                         <EditText
                             android:id="@+id/etpass"
                             android:layout_width="180dp"
@@ -91,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Don't have an account yet?"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     android:layout_gravity="center"/>
                 <Button
                     android:layout_marginTop="10dp"
@@ -99,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/material_deep_teal_500"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:textAllCaps="false"
                     android:text="  Register  " />
             </LinearLayout>

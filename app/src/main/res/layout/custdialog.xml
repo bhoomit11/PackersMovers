@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <TableLayout
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Type: "/>
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/itemtype"></Spinner>
+        </TableRow>
+        <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Source: "/>
+        <EditText
+            android:gravity="center"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:hint="From"/>
+        </TableRow>
+
+        <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Destination: "
+            />
+        <EditText
+            android:gravity="center"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:hint="Where"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Message: " />
+            <EditText
+                android:gravity="center"
+                android:hint="About Item"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shifting Date: " />
+        <TextView
+            android:id="@+id/datepick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Pick A Date"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            style="@android:style/Widget.DeviceDefault.Light.Spinner"/>
+
+        </TableRow>
+        <LinearLayout
+            android:layout_marginTop="12dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:text="submit"
+                android:textSize="18sp"/>
+            <Button
+                android:id="@+id/disbtn"
+                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:text="Cancel"
+                android:textSize="18sp"/>
+        </LinearLayout>
+    </TableLayout>
+
+</LinearLayout>
