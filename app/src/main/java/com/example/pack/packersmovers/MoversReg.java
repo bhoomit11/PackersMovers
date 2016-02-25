@@ -34,7 +34,7 @@ import java.util.ArrayList;
 
 public class MoversReg extends AppCompatActivity {
     ActionBar actionBar;
-    EditText uname,email,pass,cpass,compName,cNo,cAdd;
+    EditText uname,email,pass,cpass,compName,cNo,cAdd,city,zip;
     Button regbtn;
 
     static InputStream is=null;
@@ -53,6 +53,8 @@ public class MoversReg extends AppCompatActivity {
         compName=(EditText)findViewById(R.id.cnameet);
         cNo=(EditText)findViewById(R.id.cnoet);
         cAdd=(EditText)findViewById(R.id.caddet);
+        city=(EditText)findViewById(R.id.ctet);
+        zip=(EditText)findViewById(R.id.zipet);
         regbtn=(Button)findViewById(R.id.movebtn);
 
         StrictMode.ThreadPolicy policy= new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -81,13 +83,13 @@ public class MoversReg extends AppCompatActivity {
     }
     class AsyncDemo extends AsyncTask<String, Void, String>
     {
-        String Jsonurl="http://192.168.1.159/packermover/minsert.php";
-        private Dialog loadingDialog;
+        String Jsonurl="http://192.168.1.134/packermover/minsert.php";
+        private Dialog loading;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            loadingDialog = ProgressDialog.show(MoversReg.this, "Please wait", "Loading...");
+            loading = ProgressDialog.show(MoversReg.this, "Please wait", "Loading...");
         }
 
         @Override
@@ -101,6 +103,8 @@ public class MoversReg extends AppCompatActivity {
             al.add(new BasicNameValuePair("cname",compName.getText().toString()));
             al.add(new BasicNameValuePair("cno",cNo.getText().toString()));
             al.add(new BasicNameValuePair("address",cAdd.getText().toString()));
+            al.add(new BasicNameValuePair("city",city.getText().toString()));
+            al.add(new BasicNameValuePair("zip",zip.getText().toString()));
 
             DefaultHttpClient httpClient=new DefaultHttpClient();
             HttpPost httpPost=new HttpPost(Jsonurl);
@@ -133,7 +137,6 @@ public class MoversReg extends AppCompatActivity {
 
                 while ((line=reader.readLine())!=null)
                 {
-
                     sb.append(line+"\n");
                 }
 
@@ -155,7 +158,7 @@ public class MoversReg extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
 //            super.onPostExecute(result);
-            loadingDialog.dismiss();
+            loading.dismiss();
             String s = result.trim();
             if (s.equalsIgnoreCase("success")) {
 //                Intent intent = new Intent(MainActivity.this, UserProfile.class);

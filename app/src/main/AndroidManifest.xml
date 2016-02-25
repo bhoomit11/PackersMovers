@@ -47,6 +47,10 @@
             android:name=".moverHome"
             android:label="@string/title_activity_mover_home" >
         </activity>
+        <activity
+            android:name=".packerpostlist"
+            android:label="@string/title_activity_packerpostlist" >
+        </activity>
     </application>
 
 </manifest>

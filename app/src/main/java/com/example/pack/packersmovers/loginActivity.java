@@ -120,19 +120,11 @@ public class loginActivity extends AppCompatActivity
                 asynclogin.execute();
             }
         });
+
         // adding nav drawer items to array
-        // Home
         navDrawerItems.add(new NavDrawerItem("GO Home"));
-        // Find People
         navDrawerItems.add(new NavDrawerItem("Exit"));
-        // Photos
-//        navDrawerItems.add(new NavDrawerItem(navMenuTitles[2]));
-//        // Communities, Will add a counter here
-//        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3]));
-//        // Pages
-//        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4]));
-//        // What's hot, We  will add a counter here
-//        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5]));
+
 
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
         // setting the nav drawer list adapter
@@ -162,10 +154,6 @@ public class loginActivity extends AppCompatActivity
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-//        if (savedInstanceState == null) {
-//            // on first time display view for first nav item
-//            displayView(0);
-//        }
     }
 
     /**
@@ -208,7 +196,7 @@ public class loginActivity extends AppCompatActivity
      * */
     private void displayView(int position) {
         // update the main content by replacing fragments
-        android.app.Fragment fragment = null;
+//        android.app.Fragment fragment = null;
         switch (position) {
             case 0:
                 Intent i=new Intent(loginActivity.this,MainActivity.class);
@@ -220,21 +208,7 @@ public class loginActivity extends AppCompatActivity
                 break;
         }
 
-        if (fragment != null) {
-            android.app.FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.frame_container, fragment).commit();
-
-            // update selected item and title, then close the drawer
-            mDrawerList.setItemChecked(position, true);
-            mDrawerList.setSelection(position);
-            //setTitle(navMenuTitles[position]);
-            mDrawerLayout.closeDrawer(mDrawerList);
-        } else {
-            // error in creating fragment
-            Log.e("MainActivity", "Error in creating fragment");
-        }
-    }
+}
 
     @Override
     public void setTitle(CharSequence title) {
@@ -276,10 +250,10 @@ public class loginActivity extends AppCompatActivity
         protected String doInBackground(String... params) {
 
             if (h1.equals("Packers")) {
-                Jsonurl = "http://192.168.1.159/packermover/pack_login.php";
+                Jsonurl = "http://192.168.1.134/packermover/pack_login.php";
             }
             else if(h1.equals("Movers")){
-                Jsonurl = "http://192.168.1.159/packermover/move_login.php";
+                Jsonurl = "http://192.168.1.134/packermover/move_login.php";
             }
 
             ArrayList<NameValuePair> al=new ArrayList<NameValuePair>();
@@ -313,17 +287,13 @@ public class loginActivity extends AppCompatActivity
 
             try {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
-
                 StringBuilder sb = new StringBuilder();
-
                 String line = "";
-
                 while ((line=reader.readLine())!=null)
                 {
 
                     sb.append(line+"\n");
                 }
-
                 result=sb.toString();
 //                json=sb.toString();
 //                jobj=new JSONObject(json);

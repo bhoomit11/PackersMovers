@@ -218,6 +218,56 @@
                 android:textColorHint="@android:color/darker_gray"
                 android:layout_weight="1" />
         </TableRow>
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@android:drawable/button_onoff_indicator_off"/>
+        <TableRow>
+            <TextView
+                android:id="@+id/ctlbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:text="City"/>
+            <EditText
+                android:id="@+id/ctet"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Enter City Name"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@android:color/transparent"/>
+        </TableRow>
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@android:drawable/button_onoff_indicator_off"/>
+        <TableRow>
+            <TextView
+                android:id="@+id/ziplbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:text="Zipcode"/>
+            <EditText
+                android:id="@+id/zipet"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Enter Postal Code"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray"
+                android:background="@android:color/transparent"/>
+        </TableRow>
     </TableLayout>
         <Button
             android:layout_marginTop="10dp"

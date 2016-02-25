@@ -84,7 +84,7 @@ public class packersReg extends AppCompatActivity {
     }
     class AsyncDemo extends AsyncTask<String, Void, String>
     {
-        String Jsonurl="http://192.168.1.159/packermover/pinsert.php";
+        String Jsonurl="http://192.168.1.134/packermover/pinsert.php";
         private Dialog loadingDialog;
 
         @Override
@@ -162,10 +162,6 @@ public class packersReg extends AppCompatActivity {
             loadingDialog.dismiss();
             String s = result.trim();
             if (s.equalsIgnoreCase("success")) {
-//                Intent intent = new Intent(MainActivity.this, UserProfile.class);
-//                intent.putExtra(USER_NAME, username);
-//                finish();
-//                startActivity(intent);
                 Toast.makeText(getApplicationContext(), "Successfully Registered!", Toast.LENGTH_LONG).show();
                 flag="pass";
             }
