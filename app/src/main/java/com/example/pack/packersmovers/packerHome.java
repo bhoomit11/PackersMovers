@@ -52,6 +52,7 @@ public class packerHome extends AppCompatActivity {
     Button cancel,submit;
 
     Dialog dialog;
+    String h;
 
     static InputStream is=null;
     static String json="";
@@ -68,7 +69,7 @@ public class packerHome extends AppCompatActivity {
         actvpost=(Button)findViewById(R.id.actvbtn);
         search=(Button)findViewById(R.id.srchbtn);
         dealdone=(Button)findViewById(R.id.fdbckbtn);
-        String h=getIntent().getExtras().getString("user");
+        h=getIntent().getExtras().getString("user");
         head=(TextView)findViewById(R.id.phomehead);
         head.setText("Welcome " + h);
 
@@ -169,6 +170,7 @@ public class packerHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(packerHome.this,packerpostlist.class);
+                i.putExtra("user",h);
                 startActivity(i);
             }
         });
@@ -176,7 +178,7 @@ public class packerHome extends AppCompatActivity {
 
     class AsyncDemo extends AsyncTask<String, Void, String>
     {
-        String Jsonurl="http://192.168.1.134/packermover/insertpost.php";
+        String Jsonurl="http://192.168.1.166/packermover/insertpost.php";
         private Dialog loadingDialog;
 
         @Override
@@ -193,6 +195,7 @@ public class packerHome extends AppCompatActivity {
             Calendar c = Calendar.getInstance();
             String cdate = c.get(Calendar.DATE) +"-"+ c.get(Calendar.MONTH) +"-"+ c.get(Calendar.YEAR) +" "+ c.get(Calendar.HOUR) +":"+ c.get(Calendar.MINUTE);
 
+            al.add(new BasicNameValuePair("uname",h));
             al.add(new BasicNameValuePair("itype",itype.getSelectedItem().toString()));
             al.add(new BasicNameValuePair("qty",qty.getText().toString()));
             al.add(new BasicNameValuePair("src",src.getText().toString()));

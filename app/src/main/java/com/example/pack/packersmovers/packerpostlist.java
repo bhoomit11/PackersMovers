@@ -4,15 +4,23 @@ import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,10 +39,13 @@ public class packerpostlist extends AppCompatActivity {
     String json="";
     static InputStream is= null;
     ListView ls;
+    String h;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packerpostlist);
+
+        h=getIntent().getExtras().getString("user");
 
         StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -42,11 +53,13 @@ public class packerpostlist extends AppCompatActivity {
         ls=(ListView)findViewById(R.id.list1);
         asyncDemo ad=new asyncDemo();
         ad.execute();
+        ls.bringToFront();
+        ls.requestLayout();
     }
 
     public class asyncDemo extends AsyncTask
     {
-        String Jsonurl="http://192.168.1.134/packermover/postlist.php";
+        String Jsonurl="http://192.168.1.166/packermover/postlist.php";
         @Override
         protected Object doInBackground(Object[] params) {
             return null;
@@ -56,9 +69,20 @@ public class packerpostlist extends AppCompatActivity {
         protected void onPostExecute(Object o) {
             ArrayList<packerpost> al=new ArrayList<packerpost>();
 
+            ArrayList<NameValuePair> tempal=new ArrayList<NameValuePair>();
+
+            tempal.add(new BasicNameValuePair("uname",h));
+
             DefaultHttpClient httpClient=new DefaultHttpClient();
 
             HttpPost httpPost=new HttpPost(Jsonurl);
+
+            try{
+                httpPost.setEntity(new UrlEncodedFormEntity(tempal));
+            }
+            catch (UnsupportedEncodingException e){
+                e.printStackTrace();
+            }
 
             try
             {
@@ -93,7 +117,7 @@ public class packerpostlist extends AppCompatActivity {
             }
             try{
                 JSONObject object=new JSONObject(json);
-                JSONArray array=object.getJSONArray("user_info");
+                JSONArray array=object.getJSONArray("packerspost");
                 for(int i=0;i<array.length();i++)
                 {
                     packerpost ppost=new packerpost();
@@ -117,16 +141,21 @@ public class packerpostlist extends AppCompatActivity {
 
                     al.add(ppost);
                 }
-
                 postadapter pa = new postadapter(getApplicationContext(),al);
                 ls.setAdapter(pa);
-
             }
             catch (JSONException e) {
                 e.printStackTrace();
             }
+            if(json.trim().equals("norecord"))
+            {
+                LinearLayout lL = new LinearLayout(packerpostlist.this);
+                lL.setGravity(Gravity.CLIP_HORIZONTAL);
+                TextView tv = new TextView(packerpostlist.this);
+                tv.setText("No Active Post Found!");
+                lL.addView(tv);
+            }
             super.onPostExecute(o);
-
         }
     }
 }

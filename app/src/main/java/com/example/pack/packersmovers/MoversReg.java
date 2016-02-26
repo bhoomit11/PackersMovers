@@ -83,7 +83,7 @@ public class MoversReg extends AppCompatActivity {
     }
     class AsyncDemo extends AsyncTask<String, Void, String>
     {
-        String Jsonurl="http://192.168.1.134/packermover/minsert.php";
+        String Jsonurl="http://192.168.1.166/packermover/minsert.php";
         private Dialog loading;
 
         @Override
