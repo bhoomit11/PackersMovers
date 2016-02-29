@@ -15,5 +15,6 @@ public class moverHome extends AppCompatActivity {
         String h=getIntent().getExtras().getString("user");
         head=(TextView)findViewById(R.id.mhomehead);
         head.setText("Welcome "+h);
+
     }
 }

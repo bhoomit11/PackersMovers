@@ -25,9 +25,8 @@
             android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
             android:text="Edit Profile"
-            android:textSize="20sp"
             android:background="@color/material_deep_teal_500"
-            />
+            android:textSize="20sp"/>
         <Button
             android:id="@+id/postbtn"
             android:layout_width="180dp"
