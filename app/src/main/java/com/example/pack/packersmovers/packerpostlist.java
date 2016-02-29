@@ -102,7 +102,6 @@ public class packerpostlist extends AppCompatActivity {
                 BufferedReader reader=new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
                 StringBuilder sb=new StringBuilder();
                 String line="";
-
                 while((line=reader.readLine())!=null)
                 {
                     sb.append(line+"\n");
@@ -123,6 +122,7 @@ public class packerpostlist extends AppCompatActivity {
                     packerpost ppost=new packerpost();
                     JSONObject c=array.getJSONObject(i);
 
+                    String uname=c.getString("uname");
                     String type=c.getString("itemtype");
                     int qty=c.getInt("itemqty");
                     String src=c.getString("Source");
@@ -131,6 +131,7 @@ public class packerpostlist extends AppCompatActivity {
                     String sdate=c.getString("Shifting Date");
                     String cdate=c.getString("currentdate");
 
+                    ppost.setUname(uname);
                     ppost.setType(type);
                     ppost.setQty(qty);
                     ppost.setSrc(src);
