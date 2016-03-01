@@ -6,6 +6,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +25,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -81,6 +85,10 @@ public class loginActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Window window=getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(Color.parseColor("#00897b"));
+
         uname=(EditText)findViewById(R.id.etuser);
         pass=(EditText)findViewById(R.id.etpass);
 
@@ -114,9 +122,9 @@ public class loginActivity extends AppCompatActivity
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                usr=uname.getText().toString();
-                pwd=pass.getText().toString();
-                Asynclogin asynclogin=new Asynclogin();
+                usr = uname.getText().toString();
+                pwd = pass.getText().toString();
+                Asynclogin asynclogin = new Asynclogin();
                 asynclogin.execute();
             }
         });
@@ -135,6 +143,7 @@ public class loginActivity extends AppCompatActivity
         // enabling action bar app icon and behaving it as toggle button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff009688")));
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,//nav menu toggle icon
                 R.string.app_name, // nav drawer open - description for accessibility

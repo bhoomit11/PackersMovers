@@ -3,6 +3,8 @@ package com.example.pack.packersmovers;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -54,6 +56,10 @@ public class packersReg extends AppCompatActivity {
         address=(EditText)findViewById(R.id.addet);
         reg=(Button)findViewById(R.id.packbtn);
         actionBar=getSupportActionBar();
+
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff009688")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         StrictMode.ThreadPolicy policy= new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);

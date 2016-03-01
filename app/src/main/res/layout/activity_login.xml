@@ -20,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="25sp"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal"
+        android:fontFamily="sans-serif-light"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,52 +30,51 @@
                 android:id="@+id/l1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
                 <TableLayout
                     android:id="@+id/tbl1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <TableRow
+                        android:layout_marginTop="15dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
-                        <TextView
-                            android:id="@+id/tvuser"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Username"
-                            android:textSize="25sp" />
                         <EditText
                             android:id="@+id/etuser"
-                            android:layout_width="wrap_content"
+                            android:hint="Username"
+                            android:textSize="23sp"
+                            android:background="@drawable/textfield"
+                            android:layout_width="250dp"
+                            android:fontFamily="sans-serif-light"
                             android:layout_height="wrap_content" />
                     </TableRow>
                     <TableRow
                         android:layout_marginTop="15dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
-                        <TextView
-                            android:id="@+id/tvpass"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Password"
-                            android:textSize="25sp"/>
                         <EditText
                             android:id="@+id/etpass"
-                            android:layout_width="180dp"
+                            android:hint="Password"
+                            android:background="@drawable/textfield"
+                            android:textSize="23sp"
+                            android:layout_width="250dp"
+                            android:fontFamily="sans-serif-light"
                             android:inputType="textPassword"
                             android:layout_height="wrap_content"/>
                     </TableRow>
                     <TableRow
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="15dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center">
+                        android:layout_height="wrap_content">
                         <Button
                             android:id="@+id/loginbtn"
-                            android:layout_width="150dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@color/material_deep_teal_500"
-                            android:textSize="20dp"
+                            android:textSize="24sp"
+                            android:fontFamily="sans-serif-light"
+                            android:background="@drawable/buttonripple"
+                            android:gravity="center"
                             android:textAllCaps="false"
                             android:text="Login" />
                     </TableRow>
@@ -92,16 +92,19 @@
                     android:layout_height="wrap_content"
                     android:text="Don't have an account yet?"
                     android:textSize="25sp"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif-light"
                     android:layout_gravity="center"/>
                 <Button
                     android:layout_marginTop="10dp"
                     android:id="@+id/regbtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/material_deep_teal_500"
-                    android:textSize="20sp"
                     android:textAllCaps="false"
-                    android:text="  Register  " />
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/buttonripple"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="22sp"
+                    android:text="Sign up" />
             </LinearLayout>
         </RelativeLayout>
 

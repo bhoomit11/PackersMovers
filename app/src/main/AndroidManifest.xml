@@ -51,6 +51,10 @@
             android:name=".packerpostlist"
             android:label="@string/title_activity_packerpostlist" >
         </activity>
+        <activity
+            android:name=".vehiclemanage"
+            android:label="@string/title_activity_vehiclemanage" >
+        </activity>
     </application>
 
 </manifest>

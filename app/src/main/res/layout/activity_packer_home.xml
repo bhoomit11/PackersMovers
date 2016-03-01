@@ -61,8 +61,7 @@
             android:layout_height="wrap_content"
             android:text="Done Deals"
             android:textSize="20sp"
-            android:background="@color/material_deep_teal_500"
-            />
+            android:background="@color/material_deep_teal_500" />
     </LinearLayout>
 
 </RelativeLayout>

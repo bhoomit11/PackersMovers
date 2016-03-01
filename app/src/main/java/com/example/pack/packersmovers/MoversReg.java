@@ -3,6 +3,8 @@ package com.example.pack.packersmovers;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBar;
@@ -33,7 +35,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 public class MoversReg extends AppCompatActivity {
-    ActionBar actionBar;
     EditText uname,email,pass,cpass,compName,cNo,cAdd,city,zip;
     Button regbtn;
 
@@ -44,7 +45,10 @@ public class MoversReg extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movers_reg);
-        actionBar=getSupportActionBar();
+
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff009688")));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         uname=(EditText)findViewById(R.id.useret);
         email=(EditText)findViewById(R.id.emailet);
