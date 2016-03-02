@@ -15,20 +15,19 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:gravity="center"
         android:text="Packers Registration\nForm"/>
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/packtitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <TableLayout
-            android:background="@android:drawable/dialog_holo_light_frame"
+            android:background="@drawable/textfield"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
@@ -40,7 +39,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:textColor="#000000"
                     android:text="Username"/>
                 <EditText
                     android:id="@+id/useret"
@@ -48,8 +46,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Enter Username"
                     android:textSize="20sp"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginStart="30dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
             </TableRow>
@@ -65,7 +63,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:textColor="#000000"
                     android:text="Full Name "/>
                 <EditText
                     android:id="@+id/fnameet"
@@ -73,8 +70,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Enter Username"
                     android:textSize="20sp"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginStart="30dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
             </TableRow>
@@ -90,7 +87,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:textColor="#000000"
                     android:text="Email "/>
                 <EditText
                     android:id="@+id/emailet"
@@ -98,8 +94,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Enter Email"
                     android:textSize="20sp"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginStart="30dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
             </TableRow>
@@ -115,7 +111,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:textColor="#000000"
                     android:text="Password "/>
                 <EditText
                     android:inputType="textPassword"
@@ -124,8 +119,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Password"
                     android:textSize="20sp"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginStart="30dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
             </TableRow>
@@ -141,7 +136,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="20sp"
-                    android:textColor="#000000"
                     android:text="Confirm\nPassword "/>
                 <EditText
                     android:inputType="textPassword"
@@ -150,8 +144,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Confirm\nPassword"
                     android:textSize="20sp"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginStart="30dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
             </TableRow>
@@ -167,7 +161,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:textColor="#000000"
                     android:text="Contact No "/>
                 <EditText
                     android:id="@+id/cnoet"
@@ -175,7 +168,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Enter Contact No"
                     android:textSize="20sp"
-                    android:textColor="@android:color/black"
+                    android:fontFamily="sans-serif-light"
                     android:layout_marginStart="30dp"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
@@ -192,7 +185,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:textColor="#000000"
                     android:text="Address"
                     android:layout_gravity="center_vertical"/>
                 <EditText
@@ -202,16 +194,16 @@
                     android:inputType="textPostalAddress"
                     android:background="@android:color/transparent"
                     android:textSize="20sp"
+                    android:fontFamily="sans-serif-light"
                     android:gravity="bottom"
                     android:layout_marginStart="30dp"
                     android:hint="Enter Address"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:layout_marginBottom="5dp"/>
             </TableRow>
-        </TableLayout>
+        </TableLayout>@android:drawable/dialog_holo_light_frame
         <Button
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:id="@+id/packbtn"
             android:layout_marginBottom="20dp"
             android:layout_width="160dp"

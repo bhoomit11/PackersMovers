@@ -259,10 +259,10 @@ public class loginActivity extends AppCompatActivity
         protected String doInBackground(String... params) {
 
             if (h1.equals("Packers")) {
-                Jsonurl = "http://192.168.1.166/packermover/pack_login.php";
+                Jsonurl = "http://192.168.1.185/packermover/pack_login.php";
             }
             else if(h1.equals("Movers")){
-                Jsonurl = "http://192.168.1.166/packermover/move_login.php";
+                Jsonurl = "http://192.168.1.185/packermover/move_login.php";
             }
 
             ArrayList<NameValuePair> al=new ArrayList<NameValuePair>();

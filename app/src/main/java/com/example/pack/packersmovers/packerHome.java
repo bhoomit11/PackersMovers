@@ -73,33 +73,35 @@ public class packerHome extends AppCompatActivity {
         head=(TextView)findViewById(R.id.phomehead);
         head.setText("Welcome " + h);
 
-        dialog = new Dialog(packerHome.this);
-
         final ArrayAdapter<String> adapter;
-
         adapter=new ArrayAdapter<String>(packerHome.this,android.R.layout.simple_spinner_dropdown_item,itemtype);
+
+        dialog = new Dialog(packerHome.this);
+        dialog.setContentView(R.layout.custdialog);
+        dialog.setTitle("Shifting Info: ");
+        datepick = (TextView) dialog.findViewById(R.id.datepick);
+        typeselector=(Spinner) dialog.findViewById(R.id.itemtype);
+        typeselector.setAdapter(adapter);
+
+        //Bindind of widgets of dialog custam view
+        cancel = (Button) dialog.findViewById(R.id.disbtn);
+        submit=(Button) dialog.findViewById(R.id.submit);
+        itype=(Spinner)dialog.findViewById(R.id.itemtype);
+        qty=(TextView)dialog.findViewById(R.id.integer_number);
+        src=(EditText)dialog.findViewById(R.id.srcet);
+        dst=(EditText)dialog.findViewById(R.id.dstet);
+        msgtxt=(EditText)dialog.findViewById(R.id.msget);
+        shiftdate=(TextView)dialog.findViewById(R.id.datepick);
+
+        if(getIntent().getExtras()!=null)
+        {
+
+        }
+
         newpost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
-
-                dialog.setContentView(R.layout.custdialog);
-                dialog.setTitle("Shifting Info: ");
-
-                datepick = (TextView) dialog.findViewById(R.id.datepick);
-                typeselector=(Spinner) dialog.findViewById(R.id.itemtype);
-                typeselector.setAdapter(adapter);
-
-                //Bindind of widgets of dialog custam view
-                cancel = (Button) dialog.findViewById(R.id.disbtn);
-                submit=(Button) dialog.findViewById(R.id.submit);
-                itype=(Spinner)dialog.findViewById(R.id.itemtype);
-                qty=(TextView)dialog.findViewById(R.id.integer_number);
-                src=(EditText)dialog.findViewById(R.id.srcet);
-                dst=(EditText)dialog.findViewById(R.id.dstet);
-                msgtxt=(EditText)dialog.findViewById(R.id.msget);
-                shiftdate=(TextView)dialog.findViewById(R.id.datepick);
 
                 cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -178,7 +180,7 @@ public class packerHome extends AppCompatActivity {
 
     class AsyncDemo extends AsyncTask<String, Void, String>
     {
-        String Jsonurl="http://192.168.1.166/packermover/insertpost.php";
+        String Jsonurl="http://192.168.1.185/packermover/insertpost.php";
         private Dialog loadingDialog;
 
         @Override

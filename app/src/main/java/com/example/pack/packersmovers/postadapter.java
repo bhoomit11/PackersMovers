@@ -19,10 +19,12 @@ import com.example.pack.packersmovers.model.packerpost;
 public class postadapter extends BaseAdapter {
     private Context context;
     ArrayList<packerpost> arrayList;
+    String head;
 
-    public postadapter(Context context, ArrayList<packerpost> arrayList) {
+    public postadapter(Context context, ArrayList<packerpost> arrayList, String head) {
         this.context = context;
         this.arrayList = arrayList;
+        this.head = head;
     }
 
     @Override
@@ -71,23 +73,24 @@ public class postadapter extends BaseAdapter {
         sdate.setText(post.getSdate());
         cdate.setText(post.getCdate());
 
-//        edit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i1 = new Intent(context,packerHome.class);
-//
-//                i1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//
-//                i1.putExtra("type", post.getType());
-//                i1.putExtra("qty", String.valueOf(post.getQty()));
-//                i1.putExtra("src", post.getSrc());
-//                i1.putExtra("dst", post.getDst());
-//                i1.putExtra("msg", post.getMsg());
-//                i1.putExtra("sdate", post.getSdate());
-//
-//                v.getContext().startActivity(i1);
-//            }
-//        });
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(context,packerHome.class);
+
+                i1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                i1.putExtra("head", head);
+                i1.putExtra("type", post.getType());
+                i1.putExtra("qty", String.valueOf(post.getQty()));
+                i1.putExtra("src", post.getSrc());
+                i1.putExtra("dst", post.getDst());
+                i1.putExtra("msg", post.getMsg());
+                i1.putExtra("sdate", post.getSdate());
+
+                v.getContext().startActivity(i1);
+            }
+        });
 
         return convertView;
     }

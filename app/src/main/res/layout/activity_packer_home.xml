@@ -25,7 +25,7 @@
             android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
             android:text="Edit Profile"
-            android:background="@color/material_deep_teal_500"
+            android:background="@drawable/buttonripple"
             android:textSize="20sp"/>
         <Button
             android:id="@+id/postbtn"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text="Add New Post"
             android:textSize="20sp"
-            android:background="@color/material_deep_teal_500"
+            android:background="@drawable/buttonripple"
             />
         <Button
             android:id="@+id/actvbtn"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:text="Active Posts"
             android:textSize="20sp"
-            android:background="@color/material_deep_teal_500"
+            android:background="@drawable/buttonripple"
             />
         <Button
             android:id="@+id/srchbtn"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="Search Mover"
             android:textSize="20sp"
-            android:background="@color/material_deep_teal_500"
+            android:background="@drawable/buttonripple"
             />
         <Button
             android:id="@+id/fdbckbtn"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:text="Done Deals"
             android:textSize="20sp"
-            android:background="@color/material_deep_teal_500" />
+            android:background="@drawable/buttonripple" />
     </LinearLayout>
 
 </RelativeLayout>

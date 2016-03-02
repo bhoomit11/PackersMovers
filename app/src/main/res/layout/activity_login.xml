@@ -9,24 +9,23 @@
     android:paddingEnd="2dp">
 
     <!-- Framelayout to display Fragments -->
-    <FrameLayout
-        android:id="@+id/frame_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
-    <TextView
-        android:id="@+id/loginhead"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:gravity="center_horizontal"
-        android:fontFamily="sans-serif-light"/>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center">
+            <TextView
+                android:id="@+id/loginhead"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:gravity="center_horizontal"
+                android:fontFamily="sans-serif-light"/>
             <LinearLayout
+                android:layout_below="@+id/loginhead"
                 android:id="@+id/l1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,7 +77,29 @@
                             android:textAllCaps="false"
                             android:text="Login" />
                     </TableRow>
+                    <TableRow
+                        android:layout_marginTop="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="24sp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Forgot Your Password!"/>
+                    </TableRow>
                 </TableLayout>
+                <TextView
+                    android:id="@+id/forgot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:text="Click Here"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:background="@drawable/textfield" />
             </LinearLayout>
             <LinearLayout
                 android:layout_marginTop="80dp"
@@ -107,9 +128,8 @@
                     android:text="Sign up" />
             </LinearLayout>
         </RelativeLayout>
-
-
-    <!-- Listview to display slider menu -->
+    </ScrollView>
+    <!-- Ltview to display slider menu -->
     <ListView
         android:id="@+id/list_slidermenu"
         android:layout_width="240dp"

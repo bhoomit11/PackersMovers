@@ -59,7 +59,7 @@ public class packerpostlist extends AppCompatActivity {
 
     public class asyncDemo extends AsyncTask
     {
-        String Jsonurl="http://192.168.1.166/packermover/postlist.php";
+        String Jsonurl="http://192.168.1.185/packermover/postlist.php";
         @Override
         protected Object doInBackground(Object[] params) {
             return null;
@@ -142,8 +142,10 @@ public class packerpostlist extends AppCompatActivity {
 
                     al.add(ppost);
                 }
-                postadapter pa = new postadapter(getApplicationContext(),al);
+
+                postadapter pa = new postadapter(getApplicationContext(),al,h);
                 ls.setAdapter(pa);
+
             }
             catch (JSONException e) {
                 e.printStackTrace();
