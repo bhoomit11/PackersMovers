@@ -85,9 +85,9 @@ public class loginActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Window window=getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(Color.parseColor("#00897b"));
+//        Window window=getWindow();
+//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//        window.setStatusBarColor(Color.parseColor("#00897b"));
 
         uname=(EditText)findViewById(R.id.etuser);
         pass=(EditText)findViewById(R.id.etpass);
@@ -324,15 +324,19 @@ public class loginActivity extends AppCompatActivity
             if(s.equalsIgnoreCase("success")){
                 if (h1.equals("Packers")) {
                     Intent i = new Intent(loginActivity.this, packerHome.class);
+                    i.putExtra("act","log");
                     i.putExtra("user",uname.getText().toString());
                     startActivity(i);
+                    Toast.makeText(getApplicationContext(),"Successfully Logged In!",Toast.LENGTH_LONG).show();
+
                 }
                 if (h1.equals("Movers")) {
                     Intent i = new Intent(loginActivity.this, moverHome.class);
                     i.putExtra("user",uname.getText().toString());
                     startActivity(i);
+                    Toast.makeText(getApplicationContext(),"Successfully Logged In!",Toast.LENGTH_LONG).show();
+
                 }
-                Toast.makeText(getApplicationContext(),"Successfully Logged In!",Toast.LENGTH_LONG).show();
             }else {
                 Toast.makeText(getApplicationContext(), "Invalid User Name or Password", Toast.LENGTH_LONG).show();
             }

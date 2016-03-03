@@ -119,13 +119,16 @@
                 android:layout_height="wrap_content"
                 android:layout_width="100dp"
                 android:text="submit"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:background="@drawable/buttonripple"/>
             <Button
+                android:layout_marginStart="10dp"
                 android:id="@+id/disbtn"
                 android:layout_height="wrap_content"
                 android:layout_width="100dp"
                 android:text="Cancel"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:background="@drawable/buttonripple"/>
         </LinearLayout>
     </TableLayout>
 

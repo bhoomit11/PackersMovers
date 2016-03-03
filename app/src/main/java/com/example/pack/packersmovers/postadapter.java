@@ -77,9 +77,10 @@ public class postadapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent i1 = new Intent(context,packerHome.class);
-
                 i1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
+                i1.putExtra("ID",post.getId());
+                i1.putExtra("act","post");
                 i1.putExtra("head", head);
                 i1.putExtra("type", post.getType());
                 i1.putExtra("qty", String.valueOf(post.getQty()));

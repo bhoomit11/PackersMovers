@@ -44,12 +44,15 @@ public class packerHome extends AppCompatActivity {
     int mYear, mMonth, mDay;
     TextView datepick;
     Spinner typeselector;
-    Button edit,newpost,actvpost,search,dealdone;
+    Button edit,newpost,actvpost,search,dealdone,inc,dec;
+    String Jsonurl="";
 
     Spinner itype;
     TextView qty,shiftdate;
     EditText src,dst,msgtxt;
     Button cancel,submit;
+
+    int tempID=0;
 
     Dialog dialog;
     String h;
@@ -69,9 +72,6 @@ public class packerHome extends AppCompatActivity {
         actvpost=(Button)findViewById(R.id.actvbtn);
         search=(Button)findViewById(R.id.srchbtn);
         dealdone=(Button)findViewById(R.id.fdbckbtn);
-        h=getIntent().getExtras().getString("user");
-        head=(TextView)findViewById(R.id.phomehead);
-        head.setText("Welcome " + h);
 
         final ArrayAdapter<String> adapter;
         adapter=new ArrayAdapter<String>(packerHome.this,android.R.layout.simple_spinner_dropdown_item,itemtype);
@@ -92,78 +92,107 @@ public class packerHome extends AppCompatActivity {
         dst=(EditText)dialog.findViewById(R.id.dstet);
         msgtxt=(EditText)dialog.findViewById(R.id.msget);
         shiftdate=(TextView)dialog.findViewById(R.id.datepick);
+        inc=(Button)dialog.findViewById(R.id.inc);
+        dec=(Button)dialog.findViewById(R.id.dec);
 
         if(getIntent().getExtras()!=null)
         {
-
+            if(getIntent().getExtras().getString("act").equals("post")) {
+                h = getIntent().getExtras().getString("head");
+                head = (TextView) findViewById(R.id.phomehead);
+                head.setText("Welcome " + h);
+                dialog.show();
+                int spinnerPosition = adapter.getPosition(getIntent().getStringExtra("type"));
+                itype.setSelection(spinnerPosition);
+                qty.setText(getIntent().getStringExtra("qty"));
+                src.setText(getIntent().getStringExtra("src"));
+                dst.setText(getIntent().getStringExtra("dst"));
+                msgtxt.setText(getIntent().getStringExtra("msg"));
+                shiftdate.setText(getIntent().getStringExtra("sdate"));
+                tempID=getIntent().getExtras().getInt("ID");
+                submit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Jsonurl = "http://192.168.1.185/packermover/updatepost.php";
+                        AsyncDemo ad = new AsyncDemo();
+                        ad.execute();
+                    }
+                });
+            }
+            if(getIntent().getExtras().getString("act").equals("log")) {
+                h = getIntent().getExtras().getString("user");
+                head = (TextView) findViewById(R.id.phomehead);
+                head.setText("Welcome " + h);
+            }
         }
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+
+        inc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int i=Integer.parseInt(qty.getText().toString());
+                i++;
+                qty.setText(String.valueOf(i));
+            }
+        });
+        dec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int i=Integer.parseInt(qty.getText().toString());
+                if(i>1) {
+                    i--;
+                }
+                qty.setText(String.valueOf(i));
+            }
+        });
+
+        datepick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar c = Calendar.getInstance();
+                mYear = c.get(Calendar.YEAR);
+                mMonth = c.get(Calendar.MONTH);
+                mDay = c.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dpd = new DatePickerDialog(packerHome.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                datepick.setText(dayOfMonth + "-"
+                                        + (monthOfYear + 1) + "-" + year);
+
+                            }
+                        }, mYear, mMonth, mDay);
+                dpd.show();
+            }
+        });
 
         newpost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                cancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                    }
-                });
+                itype.setSelection(0);
+                qty.setText("1");
+                src.setText("");
+                dst.setText("");
+                msgtxt.setText("");
+                shiftdate.setText("Pick A Date");
 
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        AsyncDemo ad=new AsyncDemo();
+                        Jsonurl = "http://192.168.1.185/packermover/insertpost.php";
+                        AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }
                 });
-
-                final TextView tv=(TextView)dialog.findViewById(R.id.integer_number);
-                Button inc=(Button)dialog.findViewById(R.id.inc);
-                Button dec=(Button)dialog.findViewById(R.id.dec);
-
-                inc.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int i=Integer.parseInt(tv.getText().toString());
-                        i++;
-                        tv.setText(String.valueOf(i));
-                    }
-                });
-                dec.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int i=Integer.parseInt(tv.getText().toString());
-                        if(i>1) {
-                            i--;
-                        }
-                        tv.setText(String.valueOf(i));
-                    }
-                });
-
-                datepick.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        final Calendar c = Calendar.getInstance();
-                        mYear = c.get(Calendar.YEAR);
-                        mMonth = c.get(Calendar.MONTH);
-                        mDay = c.get(Calendar.DAY_OF_MONTH);
-
-                        DatePickerDialog dpd = new DatePickerDialog(packerHome.this,
-                                new DatePickerDialog.OnDateSetListener() {
-
-                                    @Override
-                                    public void onDateSet(DatePicker view, int year,
-                                                          int monthOfYear, int dayOfMonth) {
-                                        datepick.setText(dayOfMonth + "-"
-                                                + (monthOfYear + 1) + "-" + year);
-
-                                    }
-                                }, mYear, mMonth, mDay);
-                        dpd.show();
-                    }
-                });
-
                 dialog.show();
             }
         });
@@ -180,7 +209,6 @@ public class packerHome extends AppCompatActivity {
 
     class AsyncDemo extends AsyncTask<String, Void, String>
     {
-        String Jsonurl="http://192.168.1.185/packermover/insertpost.php";
         private Dialog loadingDialog;
 
         @Override
@@ -198,6 +226,7 @@ public class packerHome extends AppCompatActivity {
             String cdate = c.get(Calendar.DATE) +"-"+ c.get(Calendar.MONTH) +"-"+ c.get(Calendar.YEAR) +" "+ c.get(Calendar.HOUR) +":"+ c.get(Calendar.MINUTE);
 
             al.add(new BasicNameValuePair("uname",h));
+            al.add(new BasicNameValuePair("ID",String.valueOf(tempID).trim()));
             al.add(new BasicNameValuePair("itype",itype.getSelectedItem().toString()));
             al.add(new BasicNameValuePair("qty",qty.getText().toString()));
             al.add(new BasicNameValuePair("src",src.getText().toString()));
@@ -266,7 +295,7 @@ public class packerHome extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Details Posted Successfully!",Toast.LENGTH_LONG).show();
                 dialog.dismiss();
             }
-            else
+            else if (s.equalsIgnoreCase("failure"));
             {
                 Toast.makeText(getApplicationContext(),"Oops Something Wrong! Try Again!",Toast.LENGTH_LONG).show();
                 dialog.dismiss();

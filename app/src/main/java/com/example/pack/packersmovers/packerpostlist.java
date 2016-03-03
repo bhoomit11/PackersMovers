@@ -122,6 +122,7 @@ public class packerpostlist extends AppCompatActivity {
                     packerpost ppost=new packerpost();
                     JSONObject c=array.getJSONObject(i);
 
+                    int id=c.getInt("postID");
                     String uname=c.getString("uname");
                     String type=c.getString("itemtype");
                     int qty=c.getInt("itemqty");
@@ -131,6 +132,7 @@ public class packerpostlist extends AppCompatActivity {
                     String sdate=c.getString("Shifting Date");
                     String cdate=c.getString("currentdate");
 
+                    ppost.setId(id);
                     ppost.setUname(uname);
                     ppost.setType(type);
                     ppost.setQty(qty);
