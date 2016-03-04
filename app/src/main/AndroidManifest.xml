@@ -55,6 +55,16 @@
             android:name=".vehiclemanage"
             android:label="@string/title_activity_vehiclemanage" >
         </activity>
+        <activity
+            android:name=".movers_bidpost"
+            android:label="@string/title_activity_movers_bidpost"
+            android:theme="@style/Theme.AppCompat" >
+        </activity>
+        <activity
+            android:name=".packer_search"
+            android:label="@string/title_activity_packer_search"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
     </application>
 
 </manifest>

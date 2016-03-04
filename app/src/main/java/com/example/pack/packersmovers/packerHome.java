@@ -201,7 +201,15 @@ public class packerHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(packerHome.this,packerpostlist.class);
-                i.putExtra("user",h);
+                i.putExtra("user", h);
+                startActivity(i);
+            }
+        });
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(packerHome.this,packer_search.class);
                 startActivity(i);
             }
         });

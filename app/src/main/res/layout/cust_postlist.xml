@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:text="Username"
+            android:textSize="30dp"
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow>
+                <TextView
+                    android:text="Item Type: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"/>
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_marginStart="20dp"
+                    android:textSize="22sp"
+                    android:text="Type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Quantity: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"/>
+                <TextView
+                    android:id="@+id/qty"
+                    android:layout_marginStart="20dp"
+                    android:textSize="22sp"
+                    android:text="Qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="From: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"/>
+                <TextView
+                    android:id="@+id/src"
+                    android:layout_marginStart="20dp"
+                    android:textSize="22sp"
+                    android:text="source"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="To: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"/>
+                <TextView
+                    android:id="@+id/dst"
+                    android:layout_marginStart="20dp"
+                    android:textSize="22sp"
+                    android:text="Destination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Shifting\ndate: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"/>
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_marginStart="20dp"
+                    android:textSize="22sp"
+                    android:text="Date"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+    <TextView
+        android:textSize="22sp"
+        android:text="Message: "
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/msgtxt"
+        android:textSize="22sp"
+        android:text="Message"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TableLayout
+        android:layout_marginTop="12dp"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <Button
+                android:id="@+id/edtbtn"
+                android:layout_weight="1"
+                android:text="Show\nInterest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttonripple"/>
+            <TextView
+                android:layout_weight="5"
+                android:textSize="20sp"
+                android:text="Date Time"
+                android:id="@+id/datetime"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="right|bottom" />
+        </TableRow>
+    </TableLayout>
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="9dp"
+        android:background="@android:drawable/dialog_holo_light_frame"/>
+
+</LinearLayout>

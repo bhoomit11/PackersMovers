@@ -38,5 +38,7 @@
     <string name="title_activity_mover_home">moverHome</string>
     <string name="title_activity_packerpostlist">packerpostlist</string>
     <string name="title_activity_vehiclemanage">vehiclemanage</string>
+    <string name="title_activity_movers_bidpost">movers_bidpost</string>
+    <string name="title_activity_packer_search">packer_search</string>
 
 </resources>
