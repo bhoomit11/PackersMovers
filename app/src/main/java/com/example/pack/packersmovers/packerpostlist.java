@@ -145,7 +145,7 @@ public class packerpostlist extends AppCompatActivity {
                     al.add(ppost);
                 }
 
-                postadapter pa = new postadapter(getApplicationContext(),al,h);
+                postadapter pa = new postadapter(getApplicationContext(),al,h,packerpostlist.this);
                 ls.setAdapter(pa);
 
             }

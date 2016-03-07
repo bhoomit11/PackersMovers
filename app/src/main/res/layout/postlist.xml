@@ -3,10 +3,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="8dp"
-    android:paddingEnd="8dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
+    android:paddingLeft="15dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:paddingRight="15dp"
+    android:background="@drawable/card_selector"
     >
 
     <LinearLayout
@@ -15,6 +16,7 @@
         android:orientation="horizontal" >
 
         <TextView
+            android:textColor="#000000"
             android:text="Username"
             android:textSize="30dp"
             android:id="@+id/user"
@@ -35,11 +37,13 @@
 
         <TableRow>
             <TextView
+                android:textColor="#000000"
                 android:text="Item Type: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"/>
             <TextView
+                android:textColor="#000000"
                 android:id="@+id/type"
                 android:layout_marginStart="20dp"
                 android:textSize="22sp"
@@ -50,11 +54,13 @@
 
         <TableRow>
             <TextView
+                android:textColor="#000000"
                 android:text="Quantity: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"/>
             <TextView
+                android:textColor="#000000"
                 android:id="@+id/qty"
                 android:layout_marginStart="20dp"
                 android:textSize="22sp"
@@ -65,11 +71,13 @@
 
         <TableRow>
             <TextView
+                android:textColor="#000000"
                 android:text="From: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"/>
             <TextView
+                android:textColor="#000000"
                 android:id="@+id/src"
                 android:layout_marginStart="20dp"
                 android:textSize="22sp"
@@ -80,11 +88,13 @@
 
         <TableRow>
             <TextView
+                android:textColor="#000000"
                 android:text="To: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"/>
             <TextView
+                android:textColor="#000000"
                 android:id="@+id/dst"
                 android:layout_marginStart="20dp"
                 android:textSize="22sp"
@@ -94,11 +104,13 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:textColor="#000000"
                 android:text="Shifting\ndate: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"/>
             <TextView
+                android:textColor="#000000"
                 android:id="@+id/date"
                 android:layout_marginStart="20dp"
                 android:textSize="22sp"
@@ -131,12 +143,14 @@
         </LinearLayout>
     </LinearLayout>
     <TextView
+        android:textColor="#000000"
         android:textSize="22sp"
         android:text="Message: "
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
+        android:textColor="#303030"
         android:id="@+id/msgtxt"
         android:textSize="22sp"
         android:text="Message"
@@ -144,16 +158,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
+        android:textColor="#000000"
         android:textSize="20sp"
         android:text="Date Time"
         android:id="@+id/datetime"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="right" />
-    <View
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="9dp"
-        android:background="@android:drawable/dialog_holo_light_frame"/>
 </LinearLayout>
