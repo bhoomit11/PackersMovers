@@ -1,0 +1,213 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.pack.packersmovers.moverProEdit">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Edit Your Profile"
+        android:textSize="25sp"
+        android:fontFamily="sans-serif-light"
+        android:background="@drawable/header"/>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_below="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin">
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_weight="1"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Personal Details: "
+                    android:textSize="25sp"/>
+            <TextView
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:background="@drawable/textfield"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="25sp"/>
+            </LinearLayout>
+            <TableRow>
+                <TextView
+                    android:id="@+id/usrlbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Username "/>
+                <TextView
+                    android:id="@+id/useredt"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Username"
+                    android:textSize="20sp"
+                    android:layout_marginStart="30dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/emaillbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Email "/>
+                <TextView
+                    android:id="@+id/emailedt"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Email"
+                    android:textSize="20sp"
+                    android:layout_marginStart="30dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+            <LinearLayout>
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Change Password"
+                        android:textSize="20sp"
+                        android:background="@drawable/textfield"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Company Details: "
+                    android:textSize="25sp"/>
+                <TextView
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:background="@drawable/textfield"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="25sp"/>
+            </LinearLayout>
+            <TableRow>
+                <TextView
+                    android:id="@+id/cnamelbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Name"/>
+                <TextView
+                    android:id="@+id/cnameedt"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Company Name"
+                    android:textSize="20sp"
+                    android:layout_marginStart="30dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/cnolbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Contact No"/>
+                <TextView
+                    android:id="@+id/cnoedt"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Contact No"
+                    android:textSize="20sp"
+                    android:layout_marginStart="30dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/caddlbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Address"
+                    android:layout_gravity="center_vertical"/>
+                <TextView
+                    android:id="@+id/caddedt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textSize="20sp"
+                    android:layout_marginStart="30dp"
+                    android:hint="Company Address"
+                    android:background="@android:color/transparent"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/ctlbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="City"/>
+                <TextView
+                    android:id="@+id/ctedt"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:hint="City Name"
+                    android:textSize="20sp"
+                    android:layout_marginStart="30dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/ziplbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Zipcode"/>
+                <TextView
+                    android:id="@+id/zipedt"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Postal Code"
+                    android:textSize="20sp"
+                    android:layout_marginStart="30dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</RelativeLayout>
+

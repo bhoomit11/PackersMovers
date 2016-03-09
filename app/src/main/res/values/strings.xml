@@ -40,5 +40,7 @@
     <string name="title_activity_vehiclemanage">vehiclemanage</string>
     <string name="title_activity_movers_bidpost">movers_bidpost</string>
     <string name="title_activity_packer_search">packer_search</string>
+    <string name="title_activity_packer_pro_edit">packerProEdit</string>
+    <string name="title_activity_mover_pro_edit">moverProEdit</string>
 
 </resources>

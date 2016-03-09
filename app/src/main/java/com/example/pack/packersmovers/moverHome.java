@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class moverHome extends AppCompatActivity {
     TextView head;
-    Button mngvehicle,bidlist;
+    Button mngvehicle,bidlist,profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +21,7 @@ public class moverHome extends AppCompatActivity {
         head.setText("Welcome "+h);
         mngvehicle=(Button)findViewById(R.id.managevehicle);
         bidlist=(Button)findViewById(R.id.startbid);
+        profile=(Button)findViewById(R.id.mngprofile);
 
         mngvehicle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +34,13 @@ public class moverHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(moverHome.this,movers_bidpost.class);
+                startActivity(i);
+            }
+        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(moverHome.this,moverProEdit.class);
                 startActivity(i);
             }
         });

@@ -188,7 +188,7 @@ public class packerHome extends AppCompatActivity {
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Jsonurl = "http://192.168.1.185/packermover/insertpost.php";
+                        Jsonurl = "http://192.168.1.100/packermover/insertpost.php";
                         AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }

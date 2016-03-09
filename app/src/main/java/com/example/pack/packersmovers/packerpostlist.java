@@ -59,7 +59,7 @@ public class packerpostlist extends AppCompatActivity {
 
     public class asyncDemo extends AsyncTask
     {
-        String Jsonurl="http://192.168.1.185/packermover/postlist.php";
+        String Jsonurl="http://192.168.1.100/packermover/postlist.php";
         @Override
         protected Object doInBackground(Object[] params) {
             return null;

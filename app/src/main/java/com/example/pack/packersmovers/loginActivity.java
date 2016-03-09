@@ -259,10 +259,10 @@ public class loginActivity extends AppCompatActivity
         protected String doInBackground(String... params) {
 
             if (h1.equals("Packers")) {
-                Jsonurl = "http://192.168.1.185/packermover/pack_login.php";
+                Jsonurl = "http://192.168.1.100/packermover/pack_login.php";
             }
             else if(h1.equals("Movers")){
-                Jsonurl = "http://192.168.1.185/packermover/move_login.php";
+                Jsonurl = "http://192.168.1.100/packermover/move_login.php";
             }
 
             ArrayList<NameValuePair> al=new ArrayList<NameValuePair>();
@@ -335,7 +335,6 @@ public class loginActivity extends AppCompatActivity
                     i.putExtra("user",uname.getText().toString());
                     startActivity(i);
                     Toast.makeText(getApplicationContext(),"Successfully Logged In!",Toast.LENGTH_LONG).show();
-
                 }
             }else {
                 Toast.makeText(getApplicationContext(), "Invalid User Name or Password", Toast.LENGTH_LONG).show();
