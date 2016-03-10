@@ -5,6 +5,10 @@ package com.example.pack.packersmovers.model;
  */
 public class packerInfo {
     String uname;
+    String email;
+    String pass;
+    String cno;
+    String add;
 
     public String getUname() {
         return uname;
@@ -45,11 +49,5 @@ public class packerInfo {
     public void setAdd(String add) {
         this.add = add;
     }
-
-    String email;
-    String pass;
-    String cno;
-    String add;
-
 
 }
