@@ -154,7 +154,7 @@ public class postadapter extends BaseAdapter {
     }
     private class AsyncJson extends AsyncTask {
 
-        String JsonUrl = "http://192.168.1.100/packermover/deletepost.php";
+        String JsonUrl = "http://192.168.1.186/packermover/deletepost.php";
 
         @Override
         protected Object doInBackground(Object[] params) {

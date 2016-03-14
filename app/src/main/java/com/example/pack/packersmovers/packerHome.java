@@ -76,6 +76,15 @@ public class packerHome extends AppCompatActivity {
         final ArrayAdapter<String> adapter;
         adapter=new ArrayAdapter<String>(packerHome.this,android.R.layout.simple_spinner_dropdown_item,itemtype);
 
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(packerHome.this,packerProEdit.class);
+                i.putExtra("user",h);
+                startActivity(i);
+            }
+        });
+
         dialog = new Dialog(packerHome.this);
         dialog.setContentView(R.layout.custdialog);
         dialog.setTitle("Shifting Info: ");
@@ -110,10 +119,11 @@ public class packerHome extends AppCompatActivity {
                 msgtxt.setText(getIntent().getStringExtra("msg"));
                 shiftdate.setText(getIntent().getStringExtra("sdate"));
                 tempID=getIntent().getExtras().getInt("ID");
+
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Jsonurl = "http://192.168.1.185/packermover/updatepost.php";
+                        Jsonurl = "http://192.168.1.186/packermover/updatepost.php";
                         AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }
@@ -188,7 +198,7 @@ public class packerHome extends AppCompatActivity {
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Jsonurl = "http://192.168.1.100/packermover/insertpost.php";
+                        Jsonurl = "http://192.168.1.186/packermover/insertpost.php";
                         AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }
