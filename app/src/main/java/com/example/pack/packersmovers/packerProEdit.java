@@ -133,11 +133,12 @@ public class packerProEdit extends AppCompatActivity {
             }
             try{
                 jobj=new JSONObject(json);
-                JSONArray array=jobj.getJSONArray("profile");
-
-//                for(int i=0;i<array.length();i++)
-//                {
-                    JSONObject c=array.getJSONObject(0);
+                JSONObject c=new JSONObject(json);
+//                JSONArray array=jobj.getJSONArray("profile");
+//
+////                for(int i=0;i<array.length();i++)
+////                {
+//                    JSONObject c=array.getJSONObject(0);
 //
 //                    id=c.getInt("pid");
 //                    unm=c.getString("uname");
