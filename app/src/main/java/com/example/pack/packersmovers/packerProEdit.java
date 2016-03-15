@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,8 +36,12 @@ import java.util.ArrayList;
 
 public class packerProEdit extends AppCompatActivity {
     String username;
-//    String unm, fnm,em,pwd,cno,add;
-//    int id;
+    String unm, fnm,em,pwd,cno,add;
+    int id;
+
+    TextView editbtn;
+
+    Dialog dialog;
 
     static InputStream is=null;
     static String json="";
@@ -49,6 +56,7 @@ public class packerProEdit extends AppCompatActivity {
 
         username=getIntent().getExtras().getString("user");
 
+        editbtn=(TextView)findViewById(R.id.editbtn);
         uname=(TextView)findViewById(R.id.useredt);
         fname=(TextView)findViewById(R.id.fnameedt);
         email=(TextView)findViewById(R.id.emailedt);
@@ -58,16 +66,37 @@ public class packerProEdit extends AppCompatActivity {
         Asynclogin asynclogin=new Asynclogin();
         asynclogin.execute();
 
-//        Toast.makeText(getApplicationContext(),json,Toast.LENGTH_LONG).show();
-//
-//        Toast.makeText(getApplicationContext(), unm + "\n" + fnm + "\n" + em + "\n" + cno + "\n" + add,Toast.LENGTH_LONG).show();
+        dialog = new Dialog(packerProEdit.this);
+        dialog.setContentView(R.layout.packerproedit_dialog);
+        dialog.setTitle("Edit Profile: ");
 
-//        uname.setText(unm);
-//        fname.setText(fnm);
-//        email.setText(em);
-//        cntno.setText(cno);
-//        address.setText(add);
+        editbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText fn,em,cn,ad;
+                Button done,cancel;
+                fn=(EditText)dialog.findViewById(R.id.dia_fname);
+                em=(EditText)dialog.findViewById(R.id.dia_email);
+                cn=(EditText)dialog.findViewById(R.id.dia_cno);
+                ad=(EditText)dialog.findViewById(R.id.dia_address);
+                done=(Button)dialog.findViewById(R.id.dia_done);
+                cancel=(Button)dialog.findViewById(R.id.dia_cancel);
 
+                fn.setText(fname.getText().toString());
+                em.setText(email.getText().toString());
+                cn.setText(cntno.getText().toString());
+                ad.setText(address.getText().toString());
+
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+            }
+        });
     }
 
     class Asynclogin extends AsyncTask<String, Void, String>
@@ -123,7 +152,6 @@ public class packerProEdit extends AppCompatActivity {
                     sb.append(line+"\n");
                 }
                 result=sb.toString();
-                json=sb.toString();
                 is.close();
 
             } catch (UnsupportedEncodingException e) {
@@ -131,28 +159,22 @@ public class packerProEdit extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            try{
-                jobj=new JSONObject(json);
-                JSONObject c=new JSONObject(json);
-//                JSONArray array=jobj.getJSONArray("profile");
+            try {
+                jobj = new JSONObject(result);
+                JSONArray array = jobj.getJSONArray("profile");
 //
-////                for(int i=0;i<array.length();i++)
-////                {
-//                    JSONObject c=array.getJSONObject(0);
+//               for(int i=0;i<array.length();i++)
+//                {
+                JSONObject c = array.getJSONObject(0);
 //
-//                    id=c.getInt("pid");
-//                    unm=c.getString("uname");
-//                    fnm=c.getString("fullname");
-//                    em=c.getString("email");
-//                    pwd=c.getString("pass");
-//                    cno=c.getString("contactNo");
-//                    add=c.getString("Address");
-                uname.setText(c.getString("1"));
-                fname.setText(c.getString("2"));
-                email.setText(c.getString("3"));
-                cntno.setText(c.getString("5"));
-                address.setText(c.getString("6"));
-//                }
+                id = c.getInt("pid");
+                unm = c.getString("uname");
+                fnm = c.getString("fullname");
+                em = c.getString("email");
+                pwd = c.getString("pass");
+                cno = c.getString("contactNo");
+                add = c.getString("Address");
+//            }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -165,6 +187,12 @@ public class packerProEdit extends AppCompatActivity {
             super.onPostExecute(result);
             loadingDialog.dismiss();
             String s = result;
+
+            uname.setText(unm);
+            fname.setText(fnm);
+            email.setText(em);
+            cntno.setText(cno);
+            address.setText(add);
         }
     }
 }

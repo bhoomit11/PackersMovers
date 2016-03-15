@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:textSize="20dp"
+                android:text="Fullname : "/>
+            <EditText
+                android:id="@+id/dia_fname"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:background="@android:color/transparent"
+                android:hint="Fullname"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:textSize="20dp"
+                android:text="Email : "/>
+            <EditText
+                android:id="@+id/dia_email"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:background="@android:color/transparent"
+                android:hint="Email"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:textSize="20dp"
+                android:text="ContactNo : "/>
+            <EditText
+                android:id="@+id/dia_cno"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:background="@android:color/transparent"
+                android:hint="Contact Number"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:textSize="20dp"
+                android:text="Address : "/>
+            <EditText
+                android:id="@+id/dia_address"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-light"
+                android:background="@android:color/transparent"
+                android:hint="Address"/>
+        </TableRow>
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/dia_done"
+                android:layout_width="100dp"
+                android:background="@drawable/buttonripple"
+                android:layout_height="wrap_content"
+                android:text="Done"/>
+            <Button
+                android:id="@+id/dia_cancel"
+                android:layout_marginStart="15dp"
+                android:layout_width="100dp"
+                android:background="@drawable/buttonripple"
+                android:layout_height="wrap_content"
+                android:text="Cancel"/>
+        </LinearLayout>
+    </TableLayout>
+</LinearLayout>
