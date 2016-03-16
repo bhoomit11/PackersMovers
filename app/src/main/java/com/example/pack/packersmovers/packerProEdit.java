@@ -36,9 +36,7 @@ import java.util.ArrayList;
 
 public class packerProEdit extends AppCompatActivity {
     String username;
-    String unm, fnm,em,pwd,cno,add;
     int id;
-
     TextView editbtn;
 
     Dialog dialog;
@@ -102,8 +100,9 @@ public class packerProEdit extends AppCompatActivity {
     class Asynclogin extends AsyncTask<String, Void, String>
     {
 
-        String Jsonurl="http://192.168.1.186/packermover/showprofile.php";
+        String Jsonurl="http://192.168.1.186/packermover/packer_showprofile.php";
         private Dialog loadingDialog;
+        String unm, fnm,em,pwd,cno,add;
 
         @Override
         protected void onPreExecute() {
@@ -185,14 +184,15 @@ public class packerProEdit extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            loadingDialog.dismiss();
-            String s = result;
 
             uname.setText(unm);
             fname.setText(fnm);
             email.setText(em);
             cntno.setText(cno);
             address.setText(add);
+
+            loadingDialog.dismiss();
+            String s = result;
         }
     }
 }

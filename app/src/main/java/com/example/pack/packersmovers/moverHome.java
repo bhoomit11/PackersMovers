@@ -12,11 +12,12 @@ import android.widget.TextView;
 public class moverHome extends AppCompatActivity {
     TextView head;
     Button mngvehicle,bidlist,profile;
+    String h;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mover_home);
-        String h=getIntent().getExtras().getString("user");
+        h=getIntent().getExtras().getString("user");
         head=(TextView)findViewById(R.id.mhomehead);
         head.setText("Welcome "+h);
         mngvehicle=(Button)findViewById(R.id.managevehicle);
@@ -41,6 +42,7 @@ public class moverHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(moverHome.this,moverProEdit.class);
+                i.putExtra("user",h);
                 startActivity(i);
             }
         });

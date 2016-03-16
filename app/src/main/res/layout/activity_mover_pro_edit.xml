@@ -60,7 +60,6 @@
                     android:hint="Enter Username"
                     android:textSize="20sp"
                     android:layout_marginStart="30dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
             </TableRow>
@@ -78,7 +77,6 @@
                     android:hint="Enter Email"
                     android:textSize="20sp"
                     android:layout_marginStart="30dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
             </TableRow>
@@ -128,7 +126,6 @@
                     android:hint="Company Name"
                     android:textSize="20sp"
                     android:layout_marginStart="30dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
             </TableRow>
@@ -146,7 +143,6 @@
                     android:hint="Contact No"
                     android:textSize="20sp"
                     android:layout_marginStart="30dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
             </TableRow>
@@ -166,7 +162,6 @@
                     android:textSize="20sp"
                     android:layout_marginStart="30dp"
                     android:hint="Company Address"
-                    android:background="@android:color/transparent"
                     android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray" />
             </TableRow>
@@ -184,7 +179,6 @@
                     android:hint="City Name"
                     android:textSize="20sp"
                     android:layout_marginStart="30dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
             </TableRow>
@@ -202,7 +196,6 @@
                     android:hint="Postal Code"
                     android:textSize="20sp"
                     android:layout_marginStart="30dp"
-                    android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray"
                     android:background="@android:color/transparent"/>
             </TableRow>
