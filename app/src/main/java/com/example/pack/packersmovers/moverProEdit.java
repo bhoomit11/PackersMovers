@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -37,8 +39,10 @@ import java.util.ArrayList;
 public class moverProEdit extends AppCompatActivity {
     TextView usr,email,name,no,address,city,zip;
     EditText oldpass,newpass,cpass;
+    TextView peredit,comedit;
 
     String username;
+    Dialog dialog;
 
     static InputStream is=null;
     static String json="";
@@ -51,19 +55,81 @@ public class moverProEdit extends AppCompatActivity {
 
         username=getIntent().getExtras().getString("user");
 
+        peredit=(TextView)findViewById(R.id.per_edit);
+        comedit=(TextView)findViewById(R.id.com_edit);
+
         usr=(TextView)findViewById(R.id.useredt);
         email=(TextView)findViewById(R.id.emailedt);
         name=(TextView)findViewById(R.id.cnameedt);
-        no=(TextView)findViewById(R.id.cnoet);
+        no=(TextView)findViewById(R.id.cnoedt);
         address=(TextView)findViewById(R.id.caddedt);
         city=(TextView)findViewById(R.id.ctedt);
         zip=(TextView)findViewById(R.id.zipedt);
+
+        Asynclogin al=new Asynclogin();
+        al.execute();
+
+        dialog = new Dialog(moverProEdit.this);
+
+        peredit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.setContentView(R.layout.moverpersonaldialod);
+                dialog.setTitle("Edit Personal Details: ");
+                EditText user,em;
+                Button done,cancel;
+                done=(Button)dialog.findViewById(R.id.dia_done);
+                cancel=(Button)dialog.findViewById(R.id.dia_cancel);
+                user=(EditText)dialog.findViewById(R.id.dia_user);
+                em=(EditText)dialog.findViewById(R.id.dia_email);
+                user.setText(usr.getText().toString());
+                em.setText(email.getText().toString());
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
+
+        comedit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.setContentView(R.layout.moverproedit_dialog);
+                dialog.setTitle("Edit Company Details: ");
+                EditText cname,cno,add,ct,postal;
+                Button done,cancel;
+                cname=(EditText)dialog.findViewById(R.id.dia_cname);
+                cno=(EditText)dialog.findViewById(R.id.dia_cno);
+                add=(EditText)dialog.findViewById(R.id.dia_address);
+                ct=(EditText)dialog.findViewById(R.id.dia_city);
+                postal=(EditText)dialog.findViewById(R.id.dia_zip);
+                done=(Button)dialog.findViewById(R.id.dia_done);
+                cancel=(Button)dialog.findViewById(R.id.dia_cancel);
+
+                cname.setText(name.getText().toString());
+                cno.setText(no.getText().toString());
+                add.setText(address.getText().toString());
+                ct.setText(city.getText().toString());
+                postal.setText(zip.getText().toString());
+
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
     }
 
     class Asynclogin extends AsyncTask<String, Void, String>
     {
 
-        String Jsonurl="http://192.168.1.186/packermover/showprofile.php";
+        String Jsonurl="http://192.168.1.186/packermover/mover_showprofile.php";
         private Dialog loadingDialog;
         String unm,em,cname,pwd,cno,add,ct,post;
         int id;
