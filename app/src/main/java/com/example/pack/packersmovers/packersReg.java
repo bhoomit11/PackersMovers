@@ -90,7 +90,7 @@ public class packersReg extends AppCompatActivity {
     }
     class AsyncDemo extends AsyncTask<String, Void, String>
     {
-        String Jsonurl="http://192.168.0.106/packermover/pinsert.php";
+        String Jsonurl="http://192.168.1.186/packermover/pinsert.php";
         private Dialog loadingDialog;
 
         @Override

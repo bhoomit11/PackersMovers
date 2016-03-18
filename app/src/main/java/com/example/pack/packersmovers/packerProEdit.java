@@ -33,6 +33,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class packerProEdit extends AppCompatActivity {
     String username;
@@ -45,6 +46,7 @@ public class packerProEdit extends AppCompatActivity {
     static String json="";
     static JSONObject jobj=null;
 
+    SessionManager session;
     TextView uname,fname,email,cntno,address;
 
     @Override
@@ -52,7 +54,10 @@ public class packerProEdit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packer_pro_edit);
 
-        username=getIntent().getExtras().getString("user");
+        session = new SessionManager(getApplicationContext());
+
+        HashMap<String, String> user = session.getUserDetails();
+        username = user.get(SessionManager.KEY_NAME);
 
         editbtn=(TextView)findViewById(R.id.editbtn);
         uname=(TextView)findViewById(R.id.useredt);
@@ -100,7 +105,7 @@ public class packerProEdit extends AppCompatActivity {
     class Asynclogin extends AsyncTask<String, Void, String>
     {
 
-        String Jsonurl="http://192.168.0.106/packermover/packer_showprofile.php";
+        String Jsonurl="http://192.168.1.186/packermover/packer_showprofile.php";
         private Dialog loadingDialog;
         String unm, fnm,em,pwd,cno,add;
 

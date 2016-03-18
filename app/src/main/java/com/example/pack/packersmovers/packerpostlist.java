@@ -31,6 +31,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.example.pack.packersmovers.model.packerpost;
@@ -40,12 +41,16 @@ public class packerpostlist extends AppCompatActivity {
     static InputStream is= null;
     ListView ls;
     String h;
+    SessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packerpostlist);
 
-        h=getIntent().getExtras().getString("user");
+        session = new SessionManager(getApplicationContext());
+
+        HashMap<String, String> user = session.getUserDetails();
+        h = user.get(SessionManager.KEY_NAME);
 
         StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -59,7 +64,7 @@ public class packerpostlist extends AppCompatActivity {
 
     public class asyncDemo extends AsyncTask
     {
-        String Jsonurl="http://192.168.0.106/packermover/postlist.php";
+        String Jsonurl="http://192.168.1.186/packermover/postlist.php";
         @Override
         protected Object doInBackground(Object[] params) {
             return null;
@@ -145,7 +150,7 @@ public class packerpostlist extends AppCompatActivity {
                     al.add(ppost);
                 }
 
-                postadapter pa = new postadapter(getApplicationContext(),al,h,packerpostlist.this);
+                postadapter pa = new postadapter(getApplicationContext(),al,packerpostlist.this);
                 ls.setAdapter(pa);
 
             }

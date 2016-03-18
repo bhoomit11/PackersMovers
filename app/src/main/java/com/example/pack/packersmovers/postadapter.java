@@ -48,10 +48,9 @@ public class postadapter extends BaseAdapter {
     int id;
     AlertDialog alertDialog;
 
-    public postadapter(Context context, ArrayList<packerpost> arrayList, String head, Activity parentactivity) {
+    public postadapter(Context context, ArrayList<packerpost> arrayList, Activity parentactivity) {
         this.context = context;
         this.arrayList = arrayList;
-        this.head = head;
         this.parentactivity=parentactivity;
     }
 
@@ -109,7 +108,6 @@ public class postadapter extends BaseAdapter {
 
                 i1.putExtra("ID", post.getId());
                 i1.putExtra("act", "post");
-                i1.putExtra("head", head);
                 i1.putExtra("type", post.getType());
                 i1.putExtra("qty", String.valueOf(post.getQty()));
                 i1.putExtra("src", post.getSrc());
@@ -154,7 +152,7 @@ public class postadapter extends BaseAdapter {
     }
     private class AsyncJson extends AsyncTask {
 
-        String JsonUrl = "http://192.168.0.106/packermover/deletepost.php";
+        String JsonUrl = "http://192.168.1.186/packermover/deletepost.php";
 
         @Override
         protected Object doInBackground(Object[] params) {

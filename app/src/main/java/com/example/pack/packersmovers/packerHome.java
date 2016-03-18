@@ -80,6 +80,9 @@ public class packerHome extends AppCompatActivity {
         search=(Button)findViewById(R.id.srchbtn);
         dealdone=(Button)findViewById(R.id.fdbckbtn);
         logout=(Button)findViewById(R.id.logout);
+        head = (TextView) findViewById(R.id.phomehead);
+
+        head.setText("Welcome " + h);
 
         final ArrayAdapter<String> adapter;
         adapter=new ArrayAdapter<String>(packerHome.this,android.R.layout.simple_spinner_dropdown_item,itemtype);
@@ -88,7 +91,6 @@ public class packerHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(packerHome.this,packerProEdit.class);
-                i.putExtra("user",h);
                 startActivity(i);
             }
         });
@@ -115,8 +117,6 @@ public class packerHome extends AppCompatActivity {
         if(getIntent().getExtras()!=null)
         {
             if(getIntent().getExtras().getString("act").equals("post")) {
-                head = (TextView) findViewById(R.id.phomehead);
-                head.setText("Welcome " + h);
                 dialog.show();
                 int spinnerPosition = adapter.getPosition(getIntent().getStringExtra("type"));
                 itype.setSelection(spinnerPosition);
@@ -130,15 +130,11 @@ public class packerHome extends AppCompatActivity {
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Jsonurl = "http://192.168.0.106/packermover/updatepost.php";
+                        Jsonurl = "http://192.168.1.186/packermover/updatepost.php";
                         AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }
                 });
-            }
-            if(getIntent().getExtras().getString("act").equals("log")) {
-                head = (TextView) findViewById(R.id.phomehead);
-                head.setText("Welcome " + h);
             }
         }
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -204,7 +200,7 @@ public class packerHome extends AppCompatActivity {
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Jsonurl = "http://192.168.0.106/packermover/insertpost.php";
+                        Jsonurl = "http://192.168.1.186/packermover/insertpost.php";
                         AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }
@@ -217,7 +213,6 @@ public class packerHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(packerHome.this,packerpostlist.class);
-                i.putExtra("user", h);
                 startActivity(i);
             }
         });

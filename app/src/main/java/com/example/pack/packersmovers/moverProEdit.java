@@ -35,6 +35,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class moverProEdit extends AppCompatActivity {
     TextView usr,email,name,no,address,city,zip;
@@ -48,12 +49,17 @@ public class moverProEdit extends AppCompatActivity {
     static String json="";
     static JSONObject jobj=null;
 
+    SessionManager session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mover_pro_edit);
 
-        username=getIntent().getExtras().getString("user");
+        session = new SessionManager(getApplicationContext());
+
+        HashMap<String, String> user = session.getUserDetails();
+        username = user.get(SessionManager.KEY_NAME);
 
         peredit=(TextView)findViewById(R.id.per_edit);
         comedit=(TextView)findViewById(R.id.com_edit);
@@ -129,7 +135,7 @@ public class moverProEdit extends AppCompatActivity {
     class Asynclogin extends AsyncTask<String, Void, String>
     {
 
-        String Jsonurl="http://192.168.0.106/packermover/mover_showprofile.php";
+        String Jsonurl="http://192.168.1.186/packermover/mover_showprofile.php";
         private Dialog loadingDialog;
         String unm,em,cname,pwd,cno,add,ct,post;
         int id;

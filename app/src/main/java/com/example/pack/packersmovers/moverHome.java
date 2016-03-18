@@ -53,7 +53,6 @@ public class moverHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(moverHome.this,moverProEdit.class);
-                i.putExtra("user",h);
                 startActivity(i);
             }
         });
