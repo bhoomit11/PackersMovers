@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PackersMovers</string>
+    <string name="app_name">Packers Movers</string>
 
     <string name="localhost">192.168.1.186</string>
 
@@ -28,12 +28,12 @@
     <string name="title_activity_movers_reg">Movers Registration</string>
 
     <string-array name="nav_drawer_items">
-        <item >Home</item>
-        <item >Find People</item>
-        <item >Photos</item>
-        <item >Communities</item>
-        <item >Pages</item>
-        <item >What\'s Hot</item>
+        <item>Home</item>
+        <item>Find People</item>
+        <item>Photos</item>
+        <item>Communities</item>
+        <item>Pages</item>
+        <item>What\'s Hot</item>
     </string-array>
     <string name="title_activity_tempfrag">tempfrag</string>
     <string name="title_activity_packer_home">packerHome</string>
@@ -44,5 +44,6 @@
     <string name="title_activity_packer_search">packer_search</string>
     <string name="title_activity_packer_pro_edit">packerProEdit</string>
     <string name="title_activity_mover_pro_edit">moverProEdit</string>
+    <string name="title_activity_check">checkActivity</string>
 
 </resources>

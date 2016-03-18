@@ -4,13 +4,20 @@
     <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
+
     <style name="CustomAccentOverlay" parent="ThemeOverlay.AppCompat">
-    <item name="colorAccent">@color/material_deep_teal_500</item>
-</style>
+        <item name="colorAccent">@color/material_deep_teal_500</item>
+    </style>
+
     <style name="ActionBarStyle" parent="android:Widget.Holo.Light.ActionBar.Solid">
         <item name="android:icon">@android:color/transparent</item>
     </style>
+
     <style name="Theme.Dialog" parent="android:Theme.Dialog">
         <item name="android:icon">@android:color/transparent</item>
     </style>
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

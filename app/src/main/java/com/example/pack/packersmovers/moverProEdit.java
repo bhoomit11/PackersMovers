@@ -129,7 +129,7 @@ public class moverProEdit extends AppCompatActivity {
     class Asynclogin extends AsyncTask<String, Void, String>
     {
 
-        String Jsonurl="http://192.168.1.186/packermover/mover_showprofile.php";
+        String Jsonurl="http://192.168.0.106/packermover/mover_showprofile.php";
         private Dialog loadingDialog;
         String unm,em,cname,pwd,cno,add,ct,post;
         int id;

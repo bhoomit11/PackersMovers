@@ -37,14 +37,16 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class packerHome extends AppCompatActivity {
+    SessionManager session;
 
     TextView head;
     int mYear, mMonth, mDay;
     TextView datepick;
     Spinner typeselector;
-    Button edit,newpost,actvpost,search,dealdone,inc,dec;
+    Button edit,newpost,actvpost,search,dealdone,inc,dec,logout;
     String Jsonurl="";
 
     Spinner itype;
@@ -67,11 +69,17 @@ public class packerHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packer_home);
 
+        session = new SessionManager(getApplicationContext());
+
+        HashMap<String, String> user = session.getUserDetails();
+        h = user.get(SessionManager.KEY_NAME);
+
         edit=(Button)findViewById(R.id.edtbtn);
         newpost=(Button)findViewById(R.id.postbtn);
         actvpost=(Button)findViewById(R.id.actvbtn);
         search=(Button)findViewById(R.id.srchbtn);
         dealdone=(Button)findViewById(R.id.fdbckbtn);
+        logout=(Button)findViewById(R.id.logout);
 
         final ArrayAdapter<String> adapter;
         adapter=new ArrayAdapter<String>(packerHome.this,android.R.layout.simple_spinner_dropdown_item,itemtype);
@@ -107,7 +115,6 @@ public class packerHome extends AppCompatActivity {
         if(getIntent().getExtras()!=null)
         {
             if(getIntent().getExtras().getString("act").equals("post")) {
-                h = getIntent().getExtras().getString("head");
                 head = (TextView) findViewById(R.id.phomehead);
                 head.setText("Welcome " + h);
                 dialog.show();
@@ -123,14 +130,13 @@ public class packerHome extends AppCompatActivity {
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Jsonurl = "http://192.168.1.186/packermover/updatepost.php";
+                        Jsonurl = "http://192.168.0.106/packermover/updatepost.php";
                         AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }
                 });
             }
             if(getIntent().getExtras().getString("act").equals("log")) {
-                h = getIntent().getExtras().getString("user");
                 head = (TextView) findViewById(R.id.phomehead);
                 head.setText("Welcome " + h);
             }
@@ -198,7 +204,7 @@ public class packerHome extends AppCompatActivity {
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Jsonurl = "http://192.168.1.186/packermover/insertpost.php";
+                        Jsonurl = "http://192.168.0.106/packermover/insertpost.php";
                         AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }
@@ -221,6 +227,12 @@ public class packerHome extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i=new Intent(packerHome.this,packer_search.class);
                 startActivity(i);
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                session.logoutUser();
             }
         });
     }

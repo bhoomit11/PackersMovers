@@ -57,6 +57,8 @@ import java.util.Objects;
 
 public class loginActivity extends AppCompatActivity
 {
+    SessionManager session;
+
     static InputStream is=null;
     static String json="";
     static JSONObject jobj=null;
@@ -84,7 +86,7 @@ public class loginActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        session=new SessionManager(getApplicationContext());
 //        Window window=getWindow();
 //        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 //        window.setStatusBarColor(Color.parseColor("#00897b"));
@@ -259,10 +261,10 @@ public class loginActivity extends AppCompatActivity
         protected String doInBackground(String... params) {
 
             if (h1.equals("Packers")) {
-                Jsonurl = "http://192.168.1.186/packermover/pack_login.php";
+                Jsonurl = "http://192.168.0.106/packermover/pack_login.php";
             }
             else if(h1.equals("Movers")){
-                Jsonurl = "http://192.168.1.186/packermover/move_login.php";
+                Jsonurl = "http://192.168.0.106/packermover/move_login.php";
             }
 
             ArrayList<NameValuePair> al=new ArrayList<NameValuePair>();
@@ -323,17 +325,20 @@ public class loginActivity extends AppCompatActivity
             String s = result.trim();
             if(s.equalsIgnoreCase("success")){
                 if (h1.equals("Packers")) {
+                    session.createLoginSession(usr, h1);
                     Intent i = new Intent(loginActivity.this, packerHome.class);
-                    i.putExtra("act","log");
-                    i.putExtra("user",uname.getText().toString());
+//                    i.putExtra("act","log");
+//                    i.putExtra("user",uname.getText().toString());
                     startActivity(i);
+                    finish();
                     Toast.makeText(getApplicationContext(),"Successfully Logged In!",Toast.LENGTH_LONG).show();
-
                 }
                 if (h1.equals("Movers")) {
+                    session.createLoginSession(usr, h1);
                     Intent i = new Intent(loginActivity.this, moverHome.class);
-                    i.putExtra("user",uname.getText().toString());
+//                    i.putExtra("user",uname.getText().toString());
                     startActivity(i);
+                    finish();
                     Toast.makeText(getApplicationContext(),"Successfully Logged In!",Toast.LENGTH_LONG).show();
                 }
             }else {

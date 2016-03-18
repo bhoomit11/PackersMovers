@@ -100,7 +100,7 @@ public class packerProEdit extends AppCompatActivity {
     class Asynclogin extends AsyncTask<String, Void, String>
     {
 
-        String Jsonurl="http://192.168.1.186/packermover/packer_showprofile.php";
+        String Jsonurl="http://192.168.0.106/packermover/packer_showprofile.php";
         private Dialog loadingDialog;
         String unm, fnm,em,pwd,cno,add;
 
