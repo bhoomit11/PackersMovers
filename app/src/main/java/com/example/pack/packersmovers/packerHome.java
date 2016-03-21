@@ -130,7 +130,7 @@ public class packerHome extends AppCompatActivity {
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Jsonurl = "http://192.168.1.186/packermover/updatepost.php";
+                        Jsonurl = "http://192.168.1.162/packermover/updatepost.php";
                         AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }
@@ -200,7 +200,7 @@ public class packerHome extends AppCompatActivity {
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Jsonurl = "http://192.168.1.186/packermover/insertpost.php";
+                        Jsonurl = "http://192.168.1.162/packermover/insertpost.php";
                         AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }

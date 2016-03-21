@@ -78,7 +78,7 @@ public class movers_bidpost extends AppCompatActivity {
 
     public class asyncDemo extends AsyncTask
     {
-        String Jsonurl="http://192.168.1.186/packermover/moverbidpost.php";
+        String Jsonurl="http://192.168.1.162/packermover/moverbidpost.php";
         @Override
         protected Object doInBackground(Object[] params) {
             return null;
@@ -153,7 +153,7 @@ public class movers_bidpost extends AppCompatActivity {
                     al.add(ppost);
                 }
 
-                moverpostbidadapter ma = new moverpostbidadapter(getApplicationContext(),al);
+                moverpostbidadapter ma = new moverpostbidadapter(getApplicationContext(),al,movers_bidpost.this,h);
                 ls.setAdapter(ma);
 
             }

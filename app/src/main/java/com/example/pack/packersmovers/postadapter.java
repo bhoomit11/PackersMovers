@@ -77,11 +77,11 @@ public class postadapter extends BaseAdapter {
 
             convertView = mInflater.inflate(R.layout.postlist, null);
         }
-        TextView uname,type,qty,src,dst,msg,sdate,cdate;
+        TextView uname,type,qty,src,dst,msg,sdate,cdate,noti;
         Button edit,delete;
 
-        edit=(Button)convertView.findViewById(R.id.edtbtn);
-        delete=(Button)convertView.findViewById(R.id.delbtn);
+        edit=(Button) convertView.findViewById(R.id.edtbtn);
+        delete=(Button) convertView.findViewById(R.id.delbtn);
         uname=(TextView) convertView.findViewById(R.id.user);
         type=(TextView) convertView.findViewById(R.id.type);
         qty=(TextView) convertView.findViewById(R.id.qty);
@@ -90,6 +90,7 @@ public class postadapter extends BaseAdapter {
         msg=(TextView) convertView.findViewById(R.id.msgtxt);
         sdate=(TextView) convertView.findViewById(R.id.date);
         cdate=(TextView) convertView.findViewById(R.id.datetime);
+        noti=(TextView) convertView.findViewById(R.id.notify);
 
         uname.setText(post.getUname());
         type.setText(post.getType());
@@ -152,7 +153,7 @@ public class postadapter extends BaseAdapter {
     }
     private class AsyncJson extends AsyncTask {
 
-        String JsonUrl = "http://192.168.1.186/packermover/deletepost.php";
+        String JsonUrl = "http://192.168.1.162/packermover/deletepost.php";
 
         @Override
         protected Object doInBackground(Object[] params) {
@@ -211,10 +212,16 @@ public class postadapter extends BaseAdapter {
 
             return jobj;
         }
-    }
-    public void updateAdapter(ArrayList<packerpost> arrayList) {
-        this.arrayList= arrayList;
-        //and call notifyDataSetChanged
-        notifyDataSetChanged();
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+
+        }
     }
 }

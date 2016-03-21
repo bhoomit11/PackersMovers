@@ -131,14 +131,14 @@
             android:text="Edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/material_deep_teal_500"/>
+            android:background="@drawable/buttonripple"/>
         <Button
             android:id="@+id/delbtn"
             android:layout_weight="1"
             android:text="Delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/material_deep_teal_500"
+            android:background="@drawable/buttonripple"
             android:layout_marginTop="20dp"/>
         </LinearLayout>
     </LinearLayout>
@@ -157,12 +157,27 @@
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <TextView
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:text="Date Time"
-        android:id="@+id/datetime"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right" />
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp"
+            android:text=""
+            android:id="@+id/notify"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start" />
+        <TextView
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:text="Date Time"
+            android:id="@+id/datetime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"/>
+    </LinearLayout>
 </LinearLayout>
