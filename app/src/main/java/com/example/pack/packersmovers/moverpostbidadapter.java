@@ -56,6 +56,7 @@ public class moverpostbidadapter extends BaseAdapter {
     String amnt,postid;
 
     int id;
+    AlertDialog alertDialog;
 
     TextView uname,type,qty,src,dst,msg,sdate,cdate,userbid;
 
@@ -138,9 +139,28 @@ public class moverpostbidadapter extends BaseAdapter {
                     public void onClick(View v) {
                         amnt=bidvalue.getText().toString();
                         postid=String.valueOf(post.getId());
+                        dialog.dismiss();
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(parentActivity);
 
-                        AsyncJson aj=new AsyncJson();
-                        aj.execute();
+                        alertDialogBuilder.setMessage("sure you want to bid "+amnt+" ₹ ?");
+
+                        alertDialogBuilder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                AsyncJson aj = new AsyncJson();
+                                aj.execute();
+                            }
+                        });
+                        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                alertDialog.dismiss();
+                            }
+                        });
+
+                        alertDialog = alertDialogBuilder.create();
+                        alertDialog.show();
+
                     }
                 });
             }
@@ -218,4 +238,5 @@ public class moverpostbidadapter extends BaseAdapter {
             Toast.makeText(parentActivity,"Bid Submitted Successfully!",Toast.LENGTH_LONG).show();
         }
     }
+
 }

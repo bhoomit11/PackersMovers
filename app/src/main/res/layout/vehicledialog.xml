@@ -24,20 +24,6 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@drawable/textfield" />
-        <EditText
-            android:id="@+id/vnum"
-            android:layout_marginTop="15dp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:hint="Vehicle Num"
-            android:background="@drawable/textfield"/>
-        <Spinner
-            android:layout_marginTop="15dp"
-            android:id="@+id/cond"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:hint="Condition"
-            android:background="@drawable/textfield" />
     </LinearLayout>
     <LinearLayout
         android:layout_marginTop="20dp"
