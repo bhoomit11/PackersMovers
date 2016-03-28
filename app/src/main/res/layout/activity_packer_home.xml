@@ -20,17 +20,19 @@
             android:textSize="25sp"
             android:text="Choose Your Option : "/>
         <Button
+            android:fontFamily="sans-serif-light"
             android:id="@+id/edtbtn"
             android:layout_width="180dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_height="wrap_content"
             android:text="Edit Profile"
             android:background="@drawable/buttonripple"
             android:textSize="20sp"/>
         <Button
+            android:fontFamily="sans-serif-light"
             android:id="@+id/postbtn"
             android:layout_width="180dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_height="wrap_content"
             android:text="Add New Post"
             android:textSize="20sp"
@@ -45,9 +47,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         <Button
+            android:fontFamily="sans-serif-light"
             android:id="@+id/actvbtn"
             android:layout_width="180dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_height="wrap_content"
             android:text="Active Posts"
             android:textSize="20sp"
@@ -55,6 +58,7 @@
             />
             </RelativeLayout>
         <TextView
+            android:fontFamily="sans-serif-light"
             android:id="@+id/textNoti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,26 +71,29 @@
             android:background="@drawable/button_notification"/>
         </RelativeLayout>
         <Button
+            android:fontFamily="sans-serif-light"
             android:id="@+id/srchbtn"
             android:layout_width="180dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_height="wrap_content"
             android:text="Search Mover"
             android:textSize="20sp"
             android:background="@drawable/buttonripple"
             />
         <Button
+            android:fontFamily="sans-serif-light"
             android:id="@+id/fdbckbtn"
             android:layout_width="180dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_height="wrap_content"
             android:text="Done Deals"
             android:textSize="20sp"
             android:background="@drawable/buttonripple" />
         <Button
+            android:fontFamily="sans-serif-light"
             android:id="@+id/logout"
             android:layout_width="180dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_height="wrap_content"
             android:text="Log out"
             android:textSize="20sp"
