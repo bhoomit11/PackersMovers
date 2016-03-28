@@ -19,12 +19,21 @@
             android:shrinkColumns="1"
             android:layout_width="233dp"
             android:layout_height="wrap_content">
+            <TextView
+                android:fontFamily="sans-serif-light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vehicle Details:  "
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginBottom="5dp"/>
             <TableRow>
                 <TextView
                     android:fontFamily="sans-serif-light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vehicle\nName: "
+                    android:text="Name: "
                     android:textColor="#000000"
                     android:textStyle="bold"
                     android:textSize="20sp"/>
@@ -44,7 +53,7 @@
                     android:fontFamily="sans-serif-light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vehicle\nType: "
+                    android:text="Type: "
                     android:textStyle="bold"
                     android:textColor="#000000"
                     android:textSize="20sp"/>
@@ -64,7 +73,7 @@
         <ImageButton
             android:layout_marginStart="10dp"
             android:layout_marginEnd="5dp"
-            android:background="@drawable/textfield"
+            android:background="@drawable/button_design2"
             android:layout_width="80dp"
             android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"

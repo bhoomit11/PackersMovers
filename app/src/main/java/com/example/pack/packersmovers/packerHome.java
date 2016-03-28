@@ -44,7 +44,7 @@ public class packerHome extends AppCompatActivity {
 
     TextView head;
     int mYear, mMonth, mDay;
-    TextView datepick;
+    TextView datepick,notification;
     Spinner typeselector;
     Button edit,newpost,actvpost,search,dealdone,inc,dec,logout;
     String Jsonurl="";
@@ -74,6 +74,7 @@ public class packerHome extends AppCompatActivity {
         HashMap<String, String> user = session.getUserDetails();
         h = user.get(SessionManager.KEY_NAME);
 
+        notification=(TextView)findViewById(R.id.textNoti);
         edit=(Button)findViewById(R.id.edtbtn);
         newpost=(Button)findViewById(R.id.postbtn);
         actvpost=(Button)findViewById(R.id.actvbtn);
@@ -81,8 +82,8 @@ public class packerHome extends AppCompatActivity {
         dealdone=(Button)findViewById(R.id.fdbckbtn);
         logout=(Button)findViewById(R.id.logout);
         head = (TextView) findViewById(R.id.phomehead);
-
         head.setText("Welcome " + h);
+        notification.setVisibility(View.GONE);
 
         final ArrayAdapter<String> adapter;
         adapter=new ArrayAdapter<String>(packerHome.this,android.R.layout.simple_spinner_dropdown_item,itemtype);

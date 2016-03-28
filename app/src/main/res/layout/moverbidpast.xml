@@ -7,14 +7,12 @@
     android:paddingTop="15dp"
     android:paddingBottom="15dp"
     android:paddingRight="15dp"
-    android:background="@drawable/card_selector"
-    >
+    android:background="@drawable/card_selector">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
-
         <TextView
             android:textColor="#000000"
             android:text="Username"
@@ -29,12 +27,10 @@
         android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TableLayout
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
             <TableRow>
                 <TextView
                     android:textColor="#000000"
@@ -51,7 +47,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </TableRow>
-
             <TableRow>
                 <TextView
                     android:textColor="#000000"
@@ -68,7 +63,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </TableRow>
-
             <TableRow>
                 <TextView
                     android:textColor="#000000"
@@ -85,7 +79,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </TableRow>
-
             <TableRow>
                 <TextView
                     android:textColor="#000000"
@@ -120,6 +113,7 @@
                     android:layout_height="match_parent" />
             </TableRow>
         </TableLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -150,6 +144,7 @@
                 android:textSize="25dp" />
         </LinearLayout>
     </LinearLayout>
+
     <TextView
         android:textColor="#000000"
         android:textSize="20sp"
@@ -173,4 +168,5 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="right" />
+
 </LinearLayout>

@@ -36,6 +36,14 @@
             android:textSize="20sp"
             android:background="@drawable/buttonripple"
             />
+        <RelativeLayout
+            android:id="@+id/badge_layout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/relative_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <Button
             android:id="@+id/actvbtn"
             android:layout_width="180dp"
@@ -45,6 +53,19 @@
             android:textSize="20sp"
             android:background="@drawable/buttonripple"
             />
+            </RelativeLayout>
+        <TextView
+            android:id="@+id/textNoti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/relative_layout"
+            android:layout_alignRight="@id/relative_layout"
+            android:text="10"
+            android:textColor="#FFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@drawable/button_notification"/>
+        </RelativeLayout>
         <Button
             android:id="@+id/srchbtn"
             android:layout_width="180dp"
