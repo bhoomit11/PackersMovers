@@ -170,7 +170,7 @@ public class moverpostbidadapter extends BaseAdapter {
     }
     private class AsyncJson extends AsyncTask<String, Void, String> {
 
-        String JsonUrl = "http://192.168.1.162/packermover/insert_bid.php";
+        String JsonUrl = "http://192.168.1.185/packermover/insert_bid.php";
 
         @Override
         protected String doInBackground(String... params) {

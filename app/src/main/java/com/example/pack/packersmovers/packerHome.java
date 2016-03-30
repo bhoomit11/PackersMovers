@@ -83,6 +83,7 @@ public class packerHome extends AppCompatActivity {
         logout=(Button)findViewById(R.id.logout);
         head = (TextView) findViewById(R.id.phomehead);
         head.setText("Welcome " + h);
+
         notification.setVisibility(View.GONE);
 
         final ArrayAdapter<String> adapter;
@@ -131,7 +132,7 @@ public class packerHome extends AppCompatActivity {
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Jsonurl = "http://192.168.1.175/packermover/updatepost.php";
+                        Jsonurl = "http://192.168.1.185/packermover/updatepost.php";
                         AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }
@@ -201,7 +202,7 @@ public class packerHome extends AppCompatActivity {
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Jsonurl = "http://192.168.1.175/packermover/insertpost.php";
+                        Jsonurl = "http://192.168.1.185/packermover/insertpost.php";
                         AsyncDemo ad = new AsyncDemo();
                         ad.execute();
                     }

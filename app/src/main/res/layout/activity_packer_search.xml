@@ -7,6 +7,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.pack.packersmovers.packer_search">
-
-
+    <TextView
+        android:text="Search Result"
+        android:textSize="25sp"
+        android:background="@drawable/header"
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ListView
+        android:layout_below="@+id/heading"
+        android:id="@+id/moverslist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
 </RelativeLayout>

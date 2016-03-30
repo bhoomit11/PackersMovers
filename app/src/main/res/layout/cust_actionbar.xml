@@ -18,13 +18,14 @@
         android:layout_height="wrap_content"
         android:text="Search"/>
     <AutoCompleteTextView
+        android:id="@+id/autoTV"
         android:layout_weight="1"
         android:layout_width="230sp"
         android:layout_height="wrap_content"
         android:background="@drawable/textfield"/>
     <ImageButton
         android:layout_weight="1"
-        android:id="@+id/imageButton"
+        android:id="@+id/searchbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"

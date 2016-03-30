@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/relative_layout"
             android:layout_alignRight="@id/relative_layout"
-            android:text="10"
+            android:text="0"
             android:textColor="#FFF"
             android:textSize="16sp"
             android:textStyle="bold"

@@ -78,7 +78,7 @@ public class movers_bidpost extends AppCompatActivity {
 
     public class asyncDemo extends AsyncTask
     {
-        String Jsonurl="http://192.168.1.175/packermover/moverbidpost.php";
+        String Jsonurl="http://192.168.1.185/packermover/moverbidpost.php";
         @Override
         protected Object doInBackground(Object[] params) {
             return null;
