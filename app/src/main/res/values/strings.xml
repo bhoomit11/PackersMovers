@@ -46,5 +46,6 @@
     <string name="title_activity_mover_pro_edit">moverProEdit</string>
     <string name="title_activity_check">checkActivity</string>
     <string name="title_activity_movers_revokebids">moversRevokebids</string>
+    <string name="title_activity_packers_bids_list">packersBidsList</string>
 
 </resources>

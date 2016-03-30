@@ -18,6 +18,7 @@ import com.example.pack.packersmovers.model.mprofileMod;
 public class adapPackerSearch extends BaseAdapter {
     Context context;
     ArrayList<mprofileMod> arrayList;
+    public adapPackerSearch(){}
 
     public adapPackerSearch(Context context,ArrayList<mprofileMod> arrayList)
     {

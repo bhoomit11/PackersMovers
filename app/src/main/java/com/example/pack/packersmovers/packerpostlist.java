@@ -1,14 +1,17 @@
 package com.example.pack.packersmovers;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.CharacterPickerDialog;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,10 +45,13 @@ public class packerpostlist extends AppCompatActivity {
     ListView ls;
     String h;
     SessionManager session;
+    ArrayList<packerpost> al;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packerpostlist);
+
+        al=new ArrayList<packerpost>();
 
         session = new SessionManager(getApplicationContext());
 
@@ -60,6 +66,17 @@ public class packerpostlist extends AppCompatActivity {
         ad.execute();
         ls.bringToFront();
         ls.requestLayout();
+
+        ls.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final packerpost post= al.get(position);
+                int postid=post.getId();
+                Intent i=new Intent(packerpostlist.this,packersBidsList.class);
+                i.putExtra("postid",postid);
+                startActivity(i);
+            }
+        });
     }
 
     public class asyncDemo extends AsyncTask
@@ -72,7 +89,6 @@ public class packerpostlist extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Object o) {
-            ArrayList<packerpost> al=new ArrayList<packerpost>();
 
             ArrayList<NameValuePair> tempal=new ArrayList<NameValuePair>();
 

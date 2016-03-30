@@ -66,6 +66,10 @@
             android:name=".model.moversRevokebids"
             android:label="@string/title_activity_movers_revokebids" >
         </activity>
+        <activity
+            android:name=".packersBidsList"
+            android:label="@string/title_activity_packers_bids_list" >
+        </activity>
     </application>
 
 </manifest>

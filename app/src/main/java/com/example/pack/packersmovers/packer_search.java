@@ -43,7 +43,6 @@ public class packer_search extends AppCompatActivity {
 
     static InputStream is=null;
     static String json="";
-    static JSONObject jobj=null;
 
     AutoCompleteTextView atv;
     ImageButton search;
@@ -53,9 +52,9 @@ public class packer_search extends AppCompatActivity {
     ListView moverList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final adapPackerSearch ps = new adapPackerSearch();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packer_search);
-
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.setDisplayShowHomeEnabled(false);
         mActionBar.setDisplayShowTitleEnabled(false);
@@ -81,6 +80,7 @@ public class packer_search extends AppCompatActivity {
                 cityname=atv.getText().toString();
                 asyncresult asr=new asyncresult();
                 asr.execute();
+                ps.notifyDataSetChanged();
             }
         });
     }
@@ -159,14 +159,9 @@ public class packer_search extends AppCompatActivity {
     public class asyncresult extends AsyncTask
     {
         String Jsonurl="http://192.168.1.185/packermover/searchmover.php";
+        ArrayList<mprofileMod> al=new ArrayList<mprofileMod>();
         @Override
         protected Object doInBackground(Object[] params) {
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Object o) {
-            ArrayList<mprofileMod> al=new ArrayList<mprofileMod>();
 
             ArrayList<NameValuePair> tempal=new ArrayList<NameValuePair>();
 
@@ -213,8 +208,10 @@ public class packer_search extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
             try{
                 JSONObject object=new JSONObject(json);
+                Log.e("Object: ",json);
                 JSONArray array=object.getJSONArray("moverprofile");
                 for(int i=0;i<array.length();i++)
                 {
@@ -225,8 +222,8 @@ public class packer_search extends AppCompatActivity {
                     String cno=c.getString("cno");
                     String email=c.getString("email");
                     String address=c.getString("address");
-                    String city=c.getString("Shifting Date");
-                    String zip=c.getString("currentdate");
+                    String city=c.getString("city");
+                    String zip=c.getString("zip");
 
                     pro.setCname(cname);
                     pro.setCnum(cno);
@@ -237,14 +234,20 @@ public class packer_search extends AppCompatActivity {
 
                     al.add(pro);
                 }
-
-                adapPackerSearch ps = new adapPackerSearch(getApplicationContext(),al);
-                moverList.setAdapter(ps);
-
             }
             catch (JSONException e) {
                 e.printStackTrace();
             }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+
+            adapPackerSearch ps = new adapPackerSearch(getApplicationContext(),al);
+            moverList.setAdapter(ps);
+
             if(json.trim().equals("norecord"))
             {
 
