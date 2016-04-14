@@ -47,5 +47,6 @@
     <string name="title_activity_check">checkActivity</string>
     <string name="title_activity_movers_revokebids">moversRevokebids</string>
     <string name="title_activity_packers_bids_list">packersBidsList</string>
+    <string name="title_activity_packer_donedeal">packer_donedeal</string>
 
 </resources>

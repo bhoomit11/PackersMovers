@@ -70,6 +70,10 @@
             android:name=".packersBidsList"
             android:label="@string/title_activity_packers_bids_list" >
         </activity>
+        <activity
+            android:name=".packer_donedeal"
+            android:label="@string/title_activity_packer_donedeal" >
+        </activity>
     </application>
 
 </manifest>
